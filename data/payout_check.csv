@@ -1,0 +1,99 @@
+card,ticker,name,sector,industry,reit,payout_yf,eps,div_rate,payout_own,verdict
+1,AVGO,Broadcom,Technology,Semiconductors,False,0.41259998,6.01,2.6,0.43261231281198004,FAIL
+1,XOM,Exxon Mobil,Energy,Oil & Gas Integrated,False,0.5251,7.78,4.12,0.5295629820051414,PASS
+1,JNJ,J&J,Healthcare,Drug Manufacturers - General,False,0.6079,8.62,5.36,0.6218097447795825,PASS
+1,ABBV,Abbvie,Healthcare,Drug Manufacturers - General,False,1.9039999,3.55,6.92,1.9492957746478874,PASS
+1,HD,Home Depot,Consumer Cyclical,Home Improvement Retail,False,0.648,14.3,9.32,0.6517482517482517,PASS
+2,KO,Coca-Cola,Consumer Defensive,Beverages - Non-Alcoholic,False,0.6246,3.33,2.12,0.6366366366366366,PASS
+2,UNH,UnitedHealth,Healthcare,Healthcare Plans,False,0.5752,15.57,9.28,0.5960179833012202,PASS
+2,IBM,IBM,Technology,Information Technology Services,False,0.5977,11.27,6.76,0.5998225377107365,PASS
+2,CSCO,Cisco,Technology,Communication Equipment,False,0.4985,3.33,1.68,0.5045045045045045,FAIL
+2,PM,Philip Morris,Consumer Defensive,Tobacco,False,0.80730003,7.28,5.88,0.8076923076923076,PASS
+3,TD,TD Bank,Financial Services,Banks - Diversified,False,0.5,6.17,3.2,0.5186385737439222,FAIL
+3,INTU,Intuit,Technology,Software - Application,False,0.2831,16.4,4.8,0.29268292682926833,FAIL
+3,VZ,Verizon,Communication Services,Telecom Services,False,0.7279,3.84,2.83,0.7369791666666667,PASS
+3,BX,Blackstone,Financial Services,Asset Management,False,1.1119,4.47,5.23,1.1700223713646534,PASS
+3,BLK,BlackRock,Financial Services,Asset Management,False,0.5243,41.75,22.92,0.5489820359281438,PASS
+4,TXN,Texas Instruments,Technology,Semiconductors,False,0.85410005,6.58,5.68,0.8632218844984801,PASS
+4,ENB,Enbridge,Energy,Oil & Gas Midstream,False,1.4768,1.88,2.8,1.4893617021276595,PASS
+4,PFE,Pfizer,Healthcare,Drug Manufacturers - General,False,2.2632,0.76,1.72,2.263157894736842,PASS
+4,WELL,Welltower,Real Estate,REIT - Healthcare Facilities,True,1.3274001,2.22,3.4,1.5315315315315314,PASS
+4,BMO,Bank of Montreal,Financial Services,Banks - Diversified,False,0.5069,9.42,4.88,0.5180467091295117,PASS
+5,ADI,Analog Devices,Technology,Semiconductors,False,0.4964,8.43,4.4,0.5219454329774615,FAIL
+5,SCCO,Southern Copper,Basic Materials,Copper,False,0.5416,6.67,4.4,0.6596701649175413,PASS
+5,COP,ConocoPhillips,Energy,Oil & Gas E&P,False,0.4365,7.57,3.36,0.4438573315719947,FAIL
+5,ADP,ADP,Technology,Software - Application,False,0.6069,10.95,6.8,0.6210045662100457,PASS
+5,CME,CME Group,Financial Services,Financial Data & Stock Exchanges,False,0.95419997,11.8,5.2,0.4406779661016949,PASS
+6,DUK,Duke Energy,Utilities,Utilities - Regulated Electric,False,0.6416,6.64,4.34,0.6536144578313253,PASS
+6,BMY,Bristol-Myers Squibb,Healthcare,Drug Manufacturers - General,False,0.5529,4.54,2.52,0.5550660792951542,PASS
+6,CNQ,Can Nat Resources,Energy,Oil & Gas E&P,False,0.43150002,4.07,1.78,0.4373464373464373,FAIL
+6,UPS,UPS,Industrials,Integrated Freight & Logistics,False,1.2193,5.38,6.56,1.2193308550185873,PASS
+6,MMC,Marsh & McLennan,,,False,,,,,N/A
+7,WM,Waste Management,Industrials,Waste Management,False,0.5007,7.08,3.54,0.5,PASS
+7,EQIX,Equinix,Real Estate,REIT - Specialty,True,1.2677,15.55,20.64,1.3273311897106108,PASS
+7,TRP,TC Energy,Energy,Oil & Gas Midstream,False,0.9843,2.54,2.5,0.984251968503937,PASS
+7,JCI,Johnson Controls,Industrials,Building Products & Equipment,False,0.45069999,3.55,1.6,0.45070422535211274,FAIL
+7,MDLZ,Mondelez,Consumer Defensive,Confectioners,False,0.73260003,2.73,2.08,0.761904761904762,PASS
+8,ITW,Illinois Tool Works,Industrials,Specialty Industrial Machinery,False,0.5833,11.04,6.88,0.6231884057971014,PASS
+8,IMO,Imperial Oil,Energy,Oil & Gas Integrated,False,0.37150002,6.2,2.48,0.39999999999999997,FAIL
+8,AEP,Amer Electric Power,Utilities,Utilities - Regulated Electric,False,0.65510005,5.77,3.8,0.658578856152513,PASS
+8,AJG,Arthur J Gallagher,Financial Services,Insurance Brokers,False,0.44779998,6.04,2.8,0.46357615894039733,FAIL
+8,SPG,Simon Property,Real Estate,REIT - Retail,True,0.621,14.17,8.9,0.6280875088214538,PASS
+9,DLR,Digital Realty Trust,Real Estate,REIT - Specialty,True,2.3805,2.06,4.88,2.3689320388349513,PASS
+9,TRI,Thomson Reuters,Industrials,Specialty Business Services,False,0.6661,3.8,2.62,0.6894736842105263,PASS
+9,KMI,Kinder Morgan,Energy,Oil & Gas Midstream,False,2.2742,0.52,1.18,2.269230769230769,PASS
+9,APD,Air Products & Chemicals,Basic Materials,Specialty Chemicals,False,0.7566,-0.21,7.24,,N/A
+9,D,Dominion Energy,Utilities,Utilities - Regulated Electric,False,0.9239,2.89,2.67,0.9238754325259515,PASS
+10,PSA,Public Storage,Real Estate,REIT - Industrial,True,1.145,10.48,12.0,1.1450381679389312,PASS
+10,XEL,Xcel Energy,Utilities,Utilities - Regulated Electric,False,0.637,3.65,2.37,0.6493150684931507,PASS
+10,FAST,Fastenal,Industrials,Industrial Distribution,False,0.78629994,1.17,0.96,0.8205128205128205,PASS
+10,QSR,Restaurant Brands,Consumer Cyclical,Restaurants,False,0.6382,3.98,2.6,0.6532663316582915,PASS
+11,TGT,Target,Consumer Defensive,Discount Stores,False,0.473,9.65,4.64,0.4808290155440414,FAIL
+11,YUM,YUM! Brands,Consumer Cyclical,Restaurants,False,0.3678,7.94,3.0,0.3778337531486146,FAIL
+11,PAYX,Paychex,Technology,Software - Application,False,0.90589994,4.89,4.76,0.9734151329243353,PASS
+11,OXY,Occidental Petroleum,Energy,Oil & Gas E&P,False,0.295,3.39,1.12,0.3303834808259587,FAIL
+11,CCI,Crown Castle,Real Estate,REIT - Specialty,True,1.7347,2.45,4.25,1.7346938775510203,PASS
+12,SYY,Sysco,Consumer Defensive,Food Distribution,False,0.59290004,3.66,2.2,0.6010928961748634,PASS
+12,VTR,Ventas,Real Estate,REIT - Healthcare Facilities,True,3.6364002,0.55,2.0,3.6363636363636362,PASS
+12,ED,Consolidated Edison,Utilities,Utilities - Regulated Electric,False,0.5715,6.08,3.51,0.5773026315789473,PASS
+12,CTSH,Cognizant Tech,Technology,Information Technology Services,False,0.2747,4.66,1.32,0.2832618025751073,FAIL
+12,HSY,Hershey,Consumer Defensive,Confectioners,False,0.77099997,7.33,5.81,0.7926330150068213,PASS
+13,BIP,Brookfield Infrastructure,Utilities,Utilities - Diversified,False,2.8548002,0.62,1.82,2.935483870967742,PASS
+13,IRM,Iron Mountain,Real Estate,REIT - Specialty,True,2.395,1.42,3.46,2.4366197183098595,PASS
+13,PBA,Pembina Pipeline,Energy,Oil & Gas Midstream,False,1.0088,2.06,2.09,1.0145631067961165,PASS
+13,HUM,Humana,Healthcare,Healthcare Plans,False,0.3346,10.57,3.54,0.33491012298959316,FAIL
+13,EXR,Extra Space Storage,Real Estate,REIT - Industrial,True,1.4305,4.54,6.48,1.4273127753303965,PASS
+14,PG,P&G,Consumer Defensive,Household & Personal Products,False,0.6433,6.63,4.35,0.6561085972850679,PASS
+14,CVX,Chevron,Energy,Oil & Gas Integrated,False,0.6718,10.39,7.12,0.6852743022136669,PASS
+14,RBA,RB Global,Industrials,Specialty Business Services,False,0.5345,2.32,1.32,0.5689655172413793,PASS
+14,EL,Ester Lauder,Consumer Defensive,Household & Personal Products,False,2.8,0.5,1.4,2.8,PASS
+14,VICI,VICI Properties,Real Estate,REIT - Diversified,True,0.69769996,2.58,1.8,0.6976744186046512,PASS
+15,KMB,Kimberly-Clark,Consumer Defensive,Household & Personal Products,False,1.0040001,5.06,5.12,1.0118577075098816,PASS
+15,NRG,NRG Energy,Utilities,Utilities - Independent Power Producers,False,0.4766,3.83,1.9,0.4960835509138381,FAIL
+15,NTR,Nutrien,Basic Materials,Agricultural Inputs,False,0.4433,4.94,2.2,0.44534412955465585,FAIL
+15,FTS,Fortis,Utilities,Utilities - Regulated Electric,False,0.7456,2.46,1.85,0.7520325203252033,PASS
+15,SRE,Sempra,Utilities,Utilities - Diversified,False,0.7551,3.45,2.63,0.7623188405797101,PASS
+16,SBUX,Starbucks,Consumer Cyclical,Restaurants,False,1.4277,1.73,2.48,1.4335260115606936,PASS
+16,MO,Altria,Consumer Defensive,Tobacco,False,0.8926,4.75,4.24,0.8926315789473684,PASS
+16,PEP,PepsiCo,Consumer Defensive,Beverages - Non-Alcoholic,False,0.7533,7.63,5.92,0.7758846657929227,PASS
+16,MCD,McDonald's,Consumer Cyclical,Restaurants,False,0.5971,12.3,7.44,0.6048780487804878,PASS
+16,WMB,Williams Cos,Energy,Oil & Gas Midstream,False,0.8167,2.51,2.1,0.8366533864541834,PASS
+17,CL,Colgate-Palmolive,Consumer Defensive,Household & Personal Products,False,0.8228,2.54,2.12,0.8346456692913387,PASS
+17,FDX,FedEx,Industrials,Integrated Freight & Logistics,False,0.3127,18.56,4.88,0.2629310344827586,FAIL
+17,ABT,Abbott Labs,Healthcare,Medical Devices,False,0.7896,3.09,2.52,0.8155339805825244,PASS
+17,BDX,Becton Dickinson,Healthcare,Medical Instruments & Supplies,False,0.7249,5.78,4.2,0.726643598615917,PASS
+17,BNS,Scotiabank,Financial Services,Banks - Diversified,False,0.6069,5.25,3.23,0.6152380952380953,PASS
+18,MDT,Medtronic,Healthcare,Medical Devices,False,0.7614,3.73,2.88,0.7721179624664879,PASS
+18,BN,Brookfield,Financial Services,Asset Management,False,0.48150003,0.54,0.28,0.5185185185185185,FAIL
+18,ACN,Accenture,Technology,Information Technology Services,False,0.5088,12.52,6.52,0.5207667731629393,PASS
+18,OKE,ONEOK,Energy,Oil & Gas Midstream,False,0.72540003,5.79,4.28,0.7392055267702936,PASS
+18,ROK,Rockwell Automation,Industrials,Specialty Industrial Machinery,False,0.5103,10.66,5.52,0.5178236397748592,PASS
+19,CVE,Cenovus Energy,Energy,Oil & Gas Integrated,False,0.22780001,2.61,0.62,0.23754789272030652,FAIL
+19,PLD,Prologis,Real Estate,REIT - Industrial,True,0.9265,4.5,4.28,0.9511111111111111,PASS
+19,AMT,American Tower,Real Estate,REIT - Specialty,True,0.9601,7.28,6.98,0.9587912087912088,PASS
+19,PSX,Philips 66,Energy,Oil & Gas Refining & Marketing,False,2.2557,2.19,5.08,2.319634703196347,PASS
+20,NKE,Nike,Consumer Cyclical,Footwear & Accessories,False,0.77620006,2.1,1.64,0.7809523809523808,PASS
+20,GLW,Corning,Technology,Electronic Components,False,0.5161,2.17,1.12,0.5161290322580646,PASS
+20,ADM,Archer Daniels Midland,Consumer Defensive,Farm Products,False,0.5628,3.66,2.08,0.5683060109289617,PASS
+20,MPLX,MPLX,Energy,Oil & Gas Midstream,False,0.90019995,4.65,4.31,0.9268817204301074,PASS
+20,ARES,Ares Management,Financial Services,Asset Management,False,2.2661,2.18,5.4,2.477064220183486,PASS

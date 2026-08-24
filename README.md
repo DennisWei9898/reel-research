@@ -5,11 +5,11 @@
 ### 丟一支影片進去，回一份看得懂、查得證、可行動的報告
 ### Drop a reel in, get a researched, verifiable, actionable report out
 
-**不只是 fact-check。講工具就驗工具能不能用，講地點就查在哪與怎麼訂，講事實才做查證——研究路徑跟著內容型態走。**
-**Not just fact-checking. Tools get tested, places get located, claims get verified — the research path adapts to the content.**
+**不只是 fact-check。講工具就驗工具能不能用，講地點就查在哪與怎麼訂，講數據才做重算——研究路徑跟著內容型態走。**
+**Not just fact-checking. Tools get tested, places get located, numbers get recomputed — the research path adapts to the content.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-![Examples](https://img.shields.io/badge/examples-2%20reports-B23A2E.svg)
+![Examples](https://img.shields.io/badge/examples-3%20reports-B23A2E.svg)
 ![Routing](https://img.shields.io/badge/routing-6%20content%20types-8A2BE2.svg)
 ![Reproducible](https://img.shields.io/badge/scripts-reproducible-3C6B4F.svg)
 ![Language](https://img.shields.io/badge/lang-繁體中文%20%C2%B7%20EN-lightgrey.svg)
@@ -17,22 +17,25 @@
 **[繁體中文](#繁體中文)** · **[English](#english)**
 
 <p align="center">
-  <img src="docs/preview-p1.png" width="45%" alt="example 1 — stock tools and an overnight strategy" />
-  <img src="docs/preview-ai-p1.png" width="45%" alt="example 2 — AI stack tool identification" />
+  <img src="docs/preview-div-p1.png" width="31%" alt="example 1 — 100 dividend stocks, recomputed" />
+  <img src="docs/preview-ai-p1.png" width="31%" alt="example 2 — 13 AI tools identified from frames" />
+  <img src="docs/preview-seoul-p1.png" width="31%" alt="example 3 — Seoul Seongsu places located from signage" />
 </p>
 
-<sub><b>兩種完全不同的影片，同一套流程。</b>左：數據主張型（隔夜策略實測）· 右：工具型（旁白一個名字都沒念，從畫面認出 13 個工具）<br/>
-Two very different reels, one pipeline. Left: a data claim, tested. Right: 13 tools identified from frames alone.</sub>
+<sub><b>三種完全不同的影片，同一套流程。</b>
+左：數據主張（100 家公司逐一重算）· 中：工具（旁白 0 個名字，從畫面認出 13 個）· 右：地點（沒有旁白，從招牌認出 8 個地點）<br/>
+Three very different reels, one pipeline. A data claim recomputed · 13 tools identified from frames alone · 8 places located from signage.</sub>
 
 <br/>
 
 <p align="center">
-  <img src="docs/preview-p6.png" width="30%" alt="empirical test" />
-  <img src="docs/preview-p7.png" width="30%" alt="cost comparison" />
-  <img src="docs/preview-ai-p2.png" width="30%" alt="identifying tools from logos" />
+  <img src="docs/preview-div-p3.png" width="31%" alt="same company, two answers" />
+  <img src="docs/preview-ai-p2.png" width="31%" alt="identifying tools from logos" />
+  <img src="docs/preview-seoul-p3.png" width="31%" alt="addresses, hours, ratings" />
 </p>
 
-<sub>實測表 · 成本對照 · 從畫面認工具<br/>Empirical test · cost comparison · identifying tools from frames</sub>
+<sub>同一家公司兩種算法差 51 個百分點 · 從 logo 認工具 · 地址／營業時間／評價逐項落地<br/>
+One company, two answers, 51 points apart · reading logos · addresses, hours and ratings, item by item.</sub>
 
 </div>
 
@@ -46,7 +49,7 @@ Two very different reels, one pipeline. Left: a data claim, tested. Right: 13 to
 
 短影音很會講，但**看完不知道能不能信、也不知道下一步要幹嘛**。
 
-這個 repo 是一套流程：**丟一支 IG／短影音連結進去，回一份 A4 報告**——把影片拆開、判斷它在講什麼類型、走對應的研究路徑、然後給你一份可以直接行動的東西。
+這個 repo 是一套流程：**丟一支 IG／短影音連結進去，回一份 A4 報告**——把影片拆開、判斷它在講什麼類型、走對應的研究路徑，然後給你一份可以直接行動的東西。
 
 **重點不是結論，是方法。** 每個數字附來源，每個腳本都能自己重跑。
 
@@ -57,84 +60,94 @@ Two very different reels, one pipeline. Left: a data claim, tested. Right: 13 to
 | 類型 | 影片在幹嘛 | 研究路徑 | 你最後拿到什麼 |
 |---|---|---|---|
 | **A 工具／產品** | 推薦或展示某個 App、AI 工具 | 從畫面 logo 與文字標籤推斷是哪個工具 → 查官網現況 → 查價格 → 可能的話**實際裝來跑** | 工具清單 ＋ 現在能不能用 ＋ 真實價格 ＋ 誰能用 |
-| **B 事實／數據主張** | 「30 年賺 1.38 億%」這種 | 找一手來源 → 查方法論批評 → **自己抓資料重算一次** | 逐條真偽 ＋ 自己跑的實測表 |
-| **C 地點／旅遊／餐廳** | 景點、餐廳、行程 | 從畫面招牌／地標定位 → 查地址營業時間 → 查多平台評價 → **查怎麼訂位／購票** | 地點清單 ＋ 地圖連結 ＋ 評價 ＋ 訂位方式 |
+| **B 事實／數據主張** | 「100 家公司配息超過一半盈餘」這種 | 找一手來源 → 查方法論批評 → **自己抓資料重算一次** | 逐條真偽 ＋ 自己跑的實測表 |
+| **C 地點／旅遊／餐廳** | 景點、餐廳、行程 | 從畫面招牌／地標定位 → 查地址營業時間 → 查多平台評價 → **查怎麼訂位／購票** | 地點清單 ＋ 地址 ＋ 評價 ＋ 訂位方式 |
 | **D 教學／How-to** | 步驟示範 | 步驟拆解 → 前置條件 → **實際照做一次** | 可執行步驟 ＋ 卡住的地方 |
 | **E 開箱／購物** | 商品推薦 | 認出型號 → 比價 → 找負評 | 型號 ＋ 目前價格 ＋ 反面意見 |
 | **F 混合** | 同時有好幾種 | 拆成多個區塊，各走各的路徑 | 分區塊的報告 |
 
 > 完整路由規則在 skill 的 `references/routing.md`。
 
-### 兩個實例
+### 三個實例
 
-#### 範例 1 · 財經影音：AI 選股工具 ＋ 隔夜策略（B 型 ＋ A 型）
+#### 範例 1 · 數據主張型：「100 家公司把一半以上的盈餘配出去」
 
-📄 [`reports/01-stock-tools/report.pdf`](reports/01-stock-tools/report.pdf) · 🌐 [HTML](reports/01-stock-tools/report.html)
+📄 [`reports/01-dividend-payout/report.pdf`](reports/01-dividend-payout/report.pdf) · 🌐 [HTML](reports/01-dividend-payout/report.html)
 
-兩支影片：一支推薦 AI 選股工具，一支秀出「每天收盤買、開盤賣，30 年賺 1.38 億%」的圖表。
+一支 58 秒的影片閃過 20 張字卡、100 個公司名，**但一個數字都沒給**——沒說配息比率是多少、沒說怎麼算、沒給出處。
 
-**沒有停在「數字有沒有造假」——直接自己抓股價算一遍**，5 支股票、66 個交易日：
+沒有停在「聽起來合理」，而是把 100 個名字全部對成股票代號，用免費公開資料**逐家算一遍**：
 
-| 股票 | 隔夜（不算手續費） | 扣 30bps 手續費 | 什麼都不做 | 誰贏 |
-|---|---|---|---|---|
-| MU | +63.55% | +34.30% | **+41.85%** | 抱著贏 |
-| NVDA | +10.79% | −9.11% | **−3.42%** | 抱著贏 |
-| AAPL | **−7.71%** ← 相反 | −24.33% | **+3.86%** | 抱著贏 |
-| TSLA | **−13.62%** ← 相反 | −29.19% | **−11.50%** | 抱著贏 |
-| SPY | +6.79% | −12.40% | **+3.66%** | 抱著贏 |
+| 結果 | 數字 |
+|---|---|
+| 畫面上的位置 | 100 |
+| **實際唯一公司數** | **98**（Xcel Energy 在同一張字卡出現兩次、Thomson Reuters 跨卡重複） |
+| 配息確實超過一半盈餘 | 76（77.6%） |
+| **配息並沒有超過一半** | **20**（最低 22.8%） |
+| 算不出來 | 2（一家近四季虧損，分母是負的） |
+| 其中屬 REIT | 12（配息比率 62%–364%） |
 
-1. **挑哪一支決定你的結論。** 挑 MU 覺得超有效，挑 AAPL 覺得根本沒用——同一個方法換一支股票就得到相反答案，**這代表測到的不是規律，是那支股票剛好的走勢**。
-2. **扣掉手續費後五支全輸給「什麼都不做」**，連最漂亮的 MU 也輸。這招每天進出一次，66 天就是 66 趟來回。
+三個發現：
 
-附一份**活公式** Excel [`data/隔夜策略手續費試算.xlsx`](data/隔夜策略手續費試算.xlsx)：改參數分頁的黃色格子（bps），逐日明細、五支彙總、成本敏感度三個分頁自動重算，每一格都點得進去看公式。
+1. **第一張字卡的第一個名字就是反例。** Broadcom 的配息比率是 41.3%，差 50% 那條線將近 9 個百分點。清單型影片最容易發生的事，就是**前幾個名字用來建立信任、後面沒人逐項查**。
+2. **同一家公司可以有兩個答案。** CME Group 用「過去 12 個月實際配出去的錢」算是 **95.4%**，用「目前宣告的季配息 × 4」算是 **44.1%**——差 51.4 個百分點，因為它每年年底多發一次特別配息。**六家公司換個算法就跨過 50% 這條線。**
+3. **12 家是 REIT，法規逼它這樣配。** REIT 依法必須把 90% 以上應稅所得配出去，而會計盈餘被大額折舊壓低。**REIT 配息超過盈餘一半是結構性必然，不是發現。**
 
-#### 範例 2 · AI 工具影音：旁白一個名字都沒念（A 型）
+#### 範例 2 · 工具型：旁白一個名字都沒念
 
 📄 [`reports/02-ai-stack/report.pdf`](reports/02-ai-stack/report.pdf) · 🌐 [HTML](reports/02-ai-stack/report.html)
 
 一支「My August 2026 AI Stack」的 reel，旁白從頭到尾只說 *content lives here / automation runs here / research happens here*——**13 個工具名稱一個都沒念出來**，全部只在畫面的 logo 卡片上。
 
-這正是「工具型影片」路徑存在的理由。做法與結果：
+- **逐秒硬抽幀**（不是場景變化偵測）。這支影片背景幾乎不動，`--scene-threshold 0.18` 只抓到 **1 幀**，整支影片的資訊會全部漏光。
+- **文字標籤優先於 logo 外觀。** 獨立查證員把橘底白閃電判成 Zapier（合理，那正是 Zapier 的經典配色），但放大後文字標籤清楚寫著 **Cowork**。
+- **認出來之後還要驗「現在能不能用」**：13 個全部存在且可用，但 **1 個已改名**（NotebookLM → Gemini Notebook）、**1 個免費額度即將到期**、而且**實際只需要 8 個帳號**——影片沒講，但這決定你要不要照抄。
 
-- **逐秒硬抽幀**（不是場景變化偵測）。這支影片背景幾乎不動，`--scene-threshold 0.18` 只抓到 **1 幀**，整支影片的資訊會全部漏光。改成每 1.5 秒硬抽一張，才拿到全部 7 組卡片。
-- **文字標籤優先於 logo 外觀**。獨立查證員把橘底白閃電判成 Zapier（合理，那正是 Zapier 的經典配色），但放大後文字標籤清楚寫著 **Cowork**。
-- **認出來之後還要驗「現在能不能用」**：13 個全部真實存在且可用，但 **1 個已改名**（NotebookLM → Gemini Notebook）、**1 個免費額度即將到期**（Fish Audio API 8/31）、而且**實際只需要 8 個帳號**——Codex 與 ChatGPT Images 2.0 含在 ChatGPT 訂閱、Cowork 含在 Claude 訂閱、Nano Banana 2 含在 Gemini 裡。
+#### 範例 3 · 地點型：沒有旁白，只有招牌
 
-> **這三件事影片都沒講，但決定你要不要照抄。**
+📄 [`reports/03-seoul-seongsu/report.pdf`](reports/03-seoul-seongsu/report.pdf) · 🌐 [HTML](reports/03-seoul-seongsu/report.html)
+
+一支首爾聖水洞的氛圍 reel：**只有音樂，語音逐字稿抓出來是 0 行**，caption 只寫了「聖水洞」三個字，一間店名都沒給。
+
+- **招牌就是全部線索。** 畫面出現 11 處地點，**8 個定位成功**（6 個查到完整門牌）、3 個查不到。
+- **最有價值的一幀是韓文公共設施招牌。** 「성동구민종합체육센터」（城東區民綜合體育中心）名稱唯一，直接鎖定行政區。
+- **拍攝順序可以驗證地址。** 兩個資料源給了 Le Alaska 不同地址，但影片下一秒轉到 Tom Greyhound（연무장길 21）、再下一秒是 Diptyque——**同一條街、門牌連號、順序吻合**，所以 연무장길 20-1 那個版本合理得多。門牌排起來就是一條 100 公尺的實走路線。
+- **caption 的地名不能當定位依據。** 影片前 5 秒是皮膚科診所街與賣「KOREA」磁鐵的紀念品店，聖水洞沒有這種觀光商圈——**這段查不到具體位置，只能確定不是 caption 說的地方。**
+- 最後回答最實際的問題：**要不要預約。** 麵包店都是 walk-in，週末要排隊；韓國的排隊／訂位分工是 캐치테이블（訂位）、테이블링（遠端拿號）、네이버 예약（部分店家）。
 
 ### 自己重跑（範例 1 的數據）
 
 ```bash
-pip install yfinance pandas numpy openpyxl
-python3 data/overnight_test.py          # 隔夜 vs 日內，含「兩半乘回去=總報酬」驗算
-python3 data/overnight_with_costs.py    # 加上 10/30bps 成本
-python3 data/build_xlsx.py              # 重新產出 Excel
+pip install yfinance pandas
+python3 data/payout_check.py     # 逐家查 98 檔，輸出 payout_check.csv
 ```
 
-資料來源 Yahoo Finance，免費公開。**改 `TICKERS` 就能測你自己的股票。**
+資料來源 Yahoo Finance，免費公開。腳本裡的 `CARDS` 就是影片 20 張字卡的原文——**改掉它就能驗別的清單影片**。明細（每家的配息比率、每股盈餘、產業分類、兩種算法結果）在 [`data/payout_check.csv`](data/payout_check.csv)。
 
 ### 流程長什麼樣
 
-1. **拆影片**——抽幀＋逐字稿。**畫面字卡優先於語音逐字稿**（中文 ASR 對專有名詞漂字嚴重），caption 也要另外抓（caption 常宣稱畫面沒演的東西）
+1. **拆影片**——抽幀＋逐字稿。**畫面字卡優先於語音逐字稿**（ASR 對專有名詞漂字嚴重），caption 也要另外抓（caption 常宣稱畫面沒演的東西）
 2. **判斷類型**——走上面那張路由表，選對研究路徑
-3. **依路徑研究**——工具就驗可用性與價格；主張就找一手來源＋方法論批評＋**自己重算**；地點就定位＋評價＋訂位方式
+3. **依路徑研究**——工具就驗可用性與價格；數據就找一手來源＋方法論批評＋**自己重算**；地點就定位＋評價＋訂位方式
 4. **失效模式過篩**——拆分幻覺、選樣偏誤、成本消失、量級偷換、時效腐爛……共十類
-5. **產報告**——A4 印刷稿版型，每頁一句白話總結，每個概念配生活比喻，交付前跑三道機械檢查（頁數 1:1／中文字數／每頁墨水覆蓋率）＋肉眼逐頁看
+5. **產報告**——A4 印刷稿版型，每頁一句白話總結，每個概念配生活比喻，交付前跑三道機械檢查（頁數 1:1／中文字數／每頁墨水覆蓋率）＋**肉眼逐頁看**
 
 ### 幾個踩過的坑（直接寫進流程了）
 
 | 坑 | 後果 | 現在怎麼做 |
 |---|---|---|
-| 用場景變化偵測抽幀 | 靜態畫面的影片只抽到 1 幀，整支漏光 | 判斷是否靜態，是就**逐秒硬抽** |
+| 用場景變化偵測抽幀 | 靜態畫面的影片只抽到 1 幀，整支漏光，**而且不會報錯** | 先判斷影片動不動，靜態就**逐秒硬抽** |
 | 相信 logo 外觀 | 把 Cowork 認成 Zapier | **有文字標籤時文字優先** |
-| 只測一支股票 | 挑到什麼決定結論 | 至少 4–5 支 ＋ 大盤對照組 |
-| 高頻策略不扣成本 | 數字沒有意義 | 一律給 0／10／30bps 三欄 |
-| 不同單位並排比 | 「15 次請求」vs「3,000 則貼文」讀者看不出東西 | 換算成同一單位再比 |
+| 相信 caption 的地名 | 影片有一段根本不在那裡拍 | caption 只當線索，用畫面裡的地標交叉驗證 |
+| 引用比率卻不說算法 | 同一家公司差 51 個百分點 | **一律標明分子與分母** |
+| 清單型影片只抽查後面幾項 | 第一個名字就可能是反例 | **從第一項開始逐項查** |
 | 機械檢查過了就交付 | 抓不到「表格排版壞掉但字都在」 | **必須肉眼逐頁看** |
+| 模板要求的 class 只寫在某一份成品裡 | 下一份報告 class 沒有 CSS，圖片以原始像素渲染、內容溢出分頁 | **共用元件住在共用 CSS**，不靠每份報告自己抄 |
 
 ### 免責
 
-工具可用性查證與成本試算，**不含個股買賣建議，也不含工具推薦或代言**。價格與費率為 2026-08 實測，會變動。影片內容一律視為**待驗證資料**。
+工具可用性查證、地點與交通整理、數據重算。**不含個股買賣建議，也不含工具或商家推薦與代言。**
+價格、費率、營業時間與配息比率為 2026-08 實測，都會變動。影片內容一律視為**待驗證資料**。
 
 ---
 
@@ -157,65 +170,73 @@ One generic "fact-check" doesn't fit every video. For a tool video you want *doe
 | Type | What the reel does | Research path | What you get |
 |---|---|---|---|
 | **A Tools / products** | Recommends or demos an app or AI tool | Infer the tool from on-screen logos and text labels → check the official site → check pricing → **install and run it** where possible | Tool list + availability + real pricing + who can actually use it |
-| **B Factual / data claims** | "+138M% over 30 years" and the like | Find the primary source → look for methodology criticism → **pull the data and recompute** | Claim-by-claim verdicts + your own empirical table |
-| **C Places / travel / food** | Spots, restaurants, itineraries | Locate from signage and landmarks → address and hours → multi-platform reviews → **how to book** | Place list + map links + reviews + booking route |
+| **B Factual / data claims** | "100 companies pay out over half their profits" and the like | Find the primary source → look for methodology criticism → **pull the data and recompute** | Claim-by-claim verdicts + your own empirical table |
+| **C Places / travel / food** | Spots, restaurants, itineraries | Locate from signage and landmarks → address and hours → multi-platform reviews → **how to book** | Place list + addresses + reviews + booking route |
 | **D Tutorials / how-to** | Step-by-step demos | Decompose steps → prerequisites → **actually follow them once** | Runnable steps + where it breaks |
 | **E Unboxing / shopping** | Product recommendations | Identify the model → compare prices → find the negative reviews | Model + current price + the other side |
 | **F Mixed** | Several at once | Split into sections, route each separately | Sectioned report |
 
 > Full routing rules live in the skill's `references/routing.md`.
 
-### Two worked examples
+### Three worked examples
 
-#### Example 1 · Finance reels: AI stock tools + an overnight strategy (types B + A)
+#### Example 1 · A data claim: "100 stocks that pay more than half their profits as dividends"
 
-📄 [`reports/01-stock-tools/report.pdf`](reports/01-stock-tools/report.pdf) · 🌐 [HTML](reports/01-stock-tools/report.html)
+📄 [`reports/01-dividend-payout/report.pdf`](reports/01-dividend-payout/report.pdf) · 🌐 [HTML](reports/01-dividend-payout/report.html)
 
-Two reels: one recommending AI stock-analysis tools, one showing a chart claiming "buy at close, sell at open → +138,330,342% since 1990."
+A 58-second reel flashes 20 title cards naming 100 companies — and **gives not a single number**. No payout ratios, no formula, no source.
 
-**It didn't stop at "are the numbers faked" — it pulled the prices and recomputed**, 5 tickers, 66 trading days:
+Rather than stopping at "sounds plausible", every name was mapped to a ticker and **recomputed from free public data**:
 
-| Ticker | Overnight (no fees) | After 30bps | Buy & hold | Winner |
-|---|---|---|---|---|
-| MU | +63.55% | +34.30% | **+41.85%** | Buy & hold |
-| NVDA | +10.79% | −9.11% | **−3.42%** | Buy & hold |
-| AAPL | **−7.71%** ← inverted | −24.33% | **+3.86%** | Buy & hold |
-| TSLA | **−13.62%** ← inverted | −29.19% | **−11.50%** | Buy & hold |
-| SPY | +6.79% | −12.40% | **+3.66%** | Buy & hold |
+| Result | Number |
+|---|---|
+| On-screen slots | 100 |
+| **Actual unique companies** | **98** (Xcel Energy appears twice on the same card; Thomson Reuters repeats across cards) |
+| Payout ratio genuinely above 50% | 76 (77.6%) |
+| **Payout ratio not above 50%** | **20** (lowest: 22.8%) |
+| Not computable | 2 (one has negative trailing EPS — the denominator) |
+| Of the 76, REITs | 12 (payout ratios 62%–364%) |
 
-1. **Which ticker you pick determines your conclusion.** Pick MU and it looks brilliant; pick AAPL and it looks useless. Same method, opposite answers — **you measured this quarter's price path, not a regularity.**
-2. **After realistic fees all five lose to doing nothing**, even MU. The strategy needs a round trip every single day: 66 days = 66 round trips.
+Three findings:
 
-Ships with a **live-formula** workbook, [`data/隔夜策略手續費試算.xlsx`](data/隔夜策略手續費試算.xlsx): change the bps in the yellow parameter cell and the daily detail, summary, and sensitivity sheets all recalculate. Every cell is an inspectable formula.
+1. **The very first name on the very first card is a counterexample.** Broadcom pays out 41.3% — nearly 9 points short of the 50% line. With list-format videos, the first few names build trust and **nobody checks the rest.**
+2. **The same company can have two answers.** CME Group is **95.4%** on trailing dividends actually paid and **44.1%** on the declared quarterly rate × 4 — 51.4 points apart, because it pays a large annual variable dividend. **Six companies cross the 50% line depending on which definition you use.**
+3. **12 are REITs, legally required to pay out like that.** REITs must distribute 90%+ of taxable income, and GAAP earnings are suppressed by heavy depreciation. **A REIT paying out more than half its earnings is structural, not a discovery.**
 
-#### Example 2 · An AI-tools reel where zero tool names are ever spoken (type A)
+#### Example 2 · A tools reel where zero tool names are ever spoken
 
 📄 [`reports/02-ai-stack/report.pdf`](reports/02-ai-stack/report.pdf) · 🌐 [HTML](reports/02-ai-stack/report.html)
 
 A "My August 2026 AI Stack" reel. The voiceover says only *content lives here / automation runs here / research happens here* — **not one of the 13 tool names is ever said aloud.** They exist only as logo cards on screen.
 
-This is exactly why the tool path exists. What it did and found:
+- **Dense per-second frame extraction, not scene-change detection.** The background barely moves; `--scene-threshold 0.18` captured **one frame** and would have missed the entire video.
+- **Text labels beat logo appearance.** An independent verifier called the orange lightning bolt Zapier — reasonable, that's Zapier's signature palette — but zoomed in, the label plainly reads **Cowork**.
+- **Identification isn't the end; availability is.** All 13 exist and work, but **one was renamed** (NotebookLM → Gemini Notebook), **one's free tier is expiring**, and **you only need 8 accounts.** The reel mentions none of it, and all of it decides whether copying the stack is worth it.
 
-- **Dense per-second frame extraction, not scene-change detection.** The background barely moves; `--scene-threshold 0.18` captured **one frame** and would have missed the entire video. Forcing a frame every 1.5s recovered all 7 card groups.
-- **Text labels beat logo appearance.** An independent verifier called the orange lightning bolt Zapier — reasonable, that's Zapier's signature palette — but zoomed in, the text label plainly reads **Cowork**.
-- **Identification isn't the end; availability is.** All 13 exist and work, but **one was renamed** (NotebookLM → Gemini Notebook), **one's free tier expires 8/31** (Fish Audio API), and **you only need 8 accounts** — Codex and ChatGPT Images 2.0 come with ChatGPT, Cowork comes with Claude, Nano Banana 2 comes with Gemini.
+#### Example 3 · A places reel with no voiceover — only signage
 
-> **The reel mentions none of the three, and all three decide whether copying it is worth it.**
+📄 [`reports/03-seoul-seongsu/report.pdf`](reports/03-seoul-seongsu/report.pdf) · 🌐 [HTML](reports/03-seoul-seongsu/report.html)
+
+An ambience reel from Seongsu, Seoul: **music only — the speech transcript came back with 0 lines** — and a caption that says just "Seongsu", naming not one shop.
+
+- **The signage is the entire evidence base.** 11 places appear on screen; **8 were located** (6 with full street numbers), 3 could not be.
+- **The single most valuable frame is a Korean public-facility sign.** 성동구민종합체육센터 (Seongdong-gu Sports Center) is a unique name that pins the administrative district immediately.
+- **Shot order can validate an address.** Two sources gave Le Alaska different addresses — but the next shot is Tom Greyhound (Yeonmujang-gil 21) and the one after is Diptyque. **Same street, consecutive numbers, matching order**, which makes Yeonmujang-gil 20-1 far more credible. Lined up, the numbers form a 100-metre walking route.
+- **A caption's place name is not a location.** The first 5 seconds show a street of dermatology clinics and a shop selling "KOREA" fridge magnets. Seongsu has no such tourist strip — **that segment could not be located, only ruled out.**
+- Finally, the practical question: **do you need a reservation?** The bakeries are walk-in with weekend queues; in Korea the split is CatchTable (reservations), Tabling (remote queueing), Naver Reservation (some venues).
 
 ### Reproduce it (example 1's data)
 
 ```bash
-pip install yfinance pandas numpy openpyxl
-python3 data/overnight_test.py          # overnight vs intraday, incl. the (1+A)(1+B)-1 = total check
-python3 data/overnight_with_costs.py    # with 10/30bps costs applied
-python3 data/build_xlsx.py              # regenerate the workbook
+pip install yfinance pandas
+python3 data/payout_check.py     # queries 98 tickers, writes payout_check.csv
 ```
 
-Data comes from Yahoo Finance — free and public. **Change `TICKERS` to test your own.**
+Data comes from Yahoo Finance — free and public. The `CARDS` list in the script is the verbatim on-screen text of all 20 cards — **swap it out to verify a different list video**. Per-company detail (payout ratio, EPS, sector, both definitions) is in [`data/payout_check.csv`](data/payout_check.csv).
 
 ### The pipeline
 
-1. **Break down the reel** — frames + transcript. **On-screen text beats the ASR transcript** (ASR mangles product names), and fetch the caption separately (captions routinely claim things the video never shows)
+1. **Break down the reel** — frames + transcript. **On-screen text beats the ASR transcript** (ASR mangles proper nouns), and fetch the caption separately (captions routinely claim things the video never shows)
 2. **Classify** — run the routing table above and pick the path
 3. **Research along that path** — tools: availability and pricing; claims: primary source + methodology criticism + **recompute it yourself**; places: location + reviews + booking route
 4. **Screen against ten failure modes** — decomposition illusion, selection bias, vanished costs, magnitude swap, staleness, and so on
@@ -225,16 +246,17 @@ Data comes from Yahoo Finance — free and public. **Change `TICKERS` to test yo
 
 | Trap | Consequence | What the pipeline does now |
 |---|---|---|
-| Scene-change frame extraction | A static reel yields 1 frame; everything is missed | Detect static reels and **force dense extraction** |
+| Scene-change frame extraction | A static reel yields 1 frame and everything is missed — **with no error raised** | Check whether the reel actually moves; force dense extraction if not |
 | Trusting logo appearance | Cowork read as Zapier | **When a text label exists, text wins** |
-| Testing one ticker | Your pick decides the conclusion | At least 4–5 tickers plus a market benchmark |
-| No costs on a high-frequency strategy | The numbers are meaningless | Always show 0 / 10 / 30bps columns |
-| Comparing mismatched units | "15 requests" vs "3,000 posts" tells the reader nothing | Convert to a common unit first |
+| Trusting the caption's place name | Part of the reel wasn't shot there at all | Treat the caption as a lead; cross-check against landmarks in frame |
+| Quoting a ratio without its formula | The same company, 51 points apart | **Always state numerator and denominator** |
+| Spot-checking only the later items in a list | The first name can be the counterexample | **Verify from item one** |
 | Shipping once mechanical checks pass | Misses "the table broke but all the text is there" | **Look at every page** |
+| Template classes living in one finished report | The next report has classes with no CSS — images render at native pixels, content overflows the page | **Shared components live in the shared stylesheet** |
 
 ### Disclaimer
 
-Tool-availability verification and cost estimation. **Not investment advice, and not a product endorsement.** Prices and rates measured 2026-08; they change. Video content is treated as **unverified data** throughout.
+Tool-availability verification, location and transit research, and recomputation of public data. **Not investment advice, and not an endorsement of any product or venue.** Prices, rates, opening hours, and payout ratios measured 2026-08; all of them change. Video content is treated as **unverified data** throughout.
 
 ---
 
