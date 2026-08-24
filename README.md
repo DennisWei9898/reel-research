@@ -30,14 +30,14 @@ Four very different reels, one pipeline. A data claim recomputed · 13 tools ide
 <br/>
 
 <p align="center">
-  <img src="docs/preview-div-p3.png" width="23%" alt="same company, two answers" />
+  <img src="docs/preview-div-p2.png" width="23%" alt="the 20 named companies that fail the claim" />
   <img src="docs/preview-ai-p2.png" width="23%" alt="identifying tools from logos" />
   <img src="docs/preview-seoul-p3.png" width="23%" alt="addresses, hours, ratings" />
   <img src="docs/preview-xls-p3.png" width="23%" alt="the argument the demo cannot show" />
 </p>
 
-<sub>同一家公司兩種算法差 51 個百分點 · 從 logo 認工具 · 地址／營業時間／評價逐項落地 · 教學教的參數在它自己的示範裡是隱形的<br/>
-One company, two answers 51 points apart · reading logos · addresses, hours and ratings · the argument the demo itself cannot show.</sub>
+<sub>被點名卻不符合的 20 家，逐檔列出實際配息比率 · 從 logo 認工具 · 地址／營業時間／評價逐項落地 · 教學教的參數在它自己的示範裡是隱形的<br/>
+The 20 named companies that fail the claim, with their real payout ratios · reading logos · addresses, hours and ratings · the argument the demo itself cannot show.</sub>
 
 </div>
 
@@ -92,7 +92,7 @@ One company, two answers 51 points apart · reading logos · addresses, hours an
 三個發現：
 
 1. **第一張字卡的第一個名字就是反例。** Broadcom 的配息比率是 41.3%，差 50% 那條線將近 9 個百分點。清單型影片最容易發生的事，就是**前幾個名字用來建立信任、後面沒人逐項查**。
-2. **同一家公司可以有兩個答案。** CME Group 用「過去 12 個月實際配出去的錢」算是 **95.4%**，用「目前宣告的季配息 × 4」算是 **44.1%**——差 51.4 個百分點，因為它每年年底多發一次特別配息。**六家公司換個算法就跨過 50% 這條線。**
+2. **「能源股配息高」這句話本身就不成立。** 清單裡 15 家能源股，配息比率從 **22.8% 到 227.4%**——差距 10 倍。而且分界線很乾淨：**7 家管線中游（Kinder Morgan 227%、Phillips 66 226%、Enbridge 148%、Pembina 101%、TC Energy 98%、MPLX 90%、ONEOK 73%）全部超過 70%；20 家反例裡的 5 家能源股，全部是上游探勘生產**（Cenovus 22.8%、Occidental 29.5%、Imperial Oil 37.2%、Canadian Natural 43.2%、ConocoPhillips 43.6%）。管線收的是過路費、現金流穩定；探勘生產靠油價，**盈餘暴衝的時候配息比率反而被壓低**。同一個產業標籤，商業模式決定一切。
 3. **12 家是 REIT，法規逼它這樣配。** REIT 依法必須把 90% 以上應稅所得配出去，而會計盈餘被大額折舊壓低。**REIT 配息超過盈餘一半是結構性必然，不是發現。**
 
 #### 範例 2 · 工具型：旁白一個名字都沒念
@@ -165,7 +165,7 @@ python3 data/textjoin_test.py    # 需要先裝 LibreOffice
 | 抽幀時開著「去重複」 | 螢幕錄影教學裡唯一在變的是公式列那幾個字，佔畫面不到 1% 像素 → 被當成重複丟掉，打字過程整段消失 | **螢幕錄影一律關掉去重複**，改固定間隔硬抽 |
 | 相信 logo 外觀 | 把 Cowork 認成 Zapier | **有文字標籤時文字優先** |
 | 相信 caption 的地名 | 影片有一段根本不在那裡拍 | caption 只當線索，用畫面裡的地標交叉驗證 |
-| 引用比率卻不說算法 | 同一家公司差 51 個百分點 | **一律標明分子與分母** |
+| 引用比率卻不說算法 | 換一種算法，結論可能反過來 | **一律標明分子與分母** |
 | 清單型影片只抽查後面幾項 | 第一個名字就可能是反例 | **從第一項開始逐項查** |
 | 機械檢查過了就交付 | 抓不到「表格排版壞掉但字都在」 | **必須肉眼逐頁看** |
 | 模板要求的 class 只寫在某一份成品裡 | 下一份報告 class 沒有 CSS，圖片以原始像素渲染、內容溢出分頁 | **共用元件住在共用 CSS**，不靠每份報告自己抄 |
@@ -226,7 +226,7 @@ Rather than stopping at "sounds plausible", every name was mapped to a ticker an
 Three findings:
 
 1. **The very first name on the very first card is a counterexample.** Broadcom pays out 41.3% — nearly 9 points short of the 50% line. With list-format videos, the first few names build trust and **nobody checks the rest.**
-2. **The same company can have two answers.** CME Group is **95.4%** on trailing dividends actually paid and **44.1%** on the declared quarterly rate × 4 — 51.4 points apart, because it pays a large annual variable dividend. **Six companies cross the 50% line depending on which definition you use.**
+2. **"Energy stocks pay high dividends" isn't a statement that survives contact with the data.** The list holds 15 energy names, with payout ratios from **22.8% to 227.4%** — a tenfold spread — and the split is clean: **all 7 midstream/pipeline names clear 70%** (Kinder Morgan 227%, Phillips 66 226%, Enbridge 148%, Pembina 101%, TC Energy 98%, MPLX 90%, ONEOK 73%), while **all 5 energy counterexamples are upstream E&P** (Cenovus 22.8%, Occidental 29.5%, Imperial Oil 37.2%, Canadian Natural 43.2%, ConocoPhillips 43.6%). Pipelines collect tolls on steady cash flow; explorers ride the oil price, and **a spike in earnings pushes the payout ratio down**. Same sector label, opposite behaviour.
 3. **12 are REITs, legally required to pay out like that.** REITs must distribute 90%+ of taxable income, and GAAP earnings are suppressed by heavy depreciation. **A REIT paying out more than half its earnings is structural, not a discovery.**
 
 #### Example 2 · A tools reel where zero tool names are ever spoken
@@ -299,7 +299,7 @@ It rebuilds the sheet, types the formula, has LibreOffice compute it, and prints
 | Leaving near-duplicate dropping on | In a screencast the only thing changing is a few characters in the formula bar — under 1% of pixels — so the typing gets discarded as duplicate | **Disable dedup for screencasts**; sample at a fixed interval |
 | Trusting logo appearance | Cowork read as Zapier | **When a text label exists, text wins** |
 | Trusting the caption's place name | Part of the reel wasn't shot there at all | Treat the caption as a lead; cross-check against landmarks in frame |
-| Quoting a ratio without its formula | The same company, 51 points apart | **Always state numerator and denominator** |
+| Quoting a ratio without its formula | Change the definition and the verdict can flip | **Always state numerator and denominator** |
 | Spot-checking only the later items in a list | The first name can be the counterexample | **Verify from item one** |
 | Shipping once mechanical checks pass | Misses "the table broke but all the text is there" | **Look at every page** |
 | Template classes living in one finished report | The next report has classes with no CSS — images render at native pixels, content overflows the page | **Shared components live in the shared stylesheet** |
