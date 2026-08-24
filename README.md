@@ -30,6 +30,7 @@ Four very different reels, one pipeline. A data claim recomputed · 13 tools ide
 <br/>
 
 <p align="center">
+  <img src="docs/preview-div-p2.png" width="23%" alt="the 20 named companies that fail the claim" />
   <img src="docs/preview-ai-p2.png" width="23%" alt="identifying tools from logos" />
   <img src="docs/preview-seoul-p3.png" width="23%" alt="addresses, hours, ratings" />
   <img src="docs/preview-xls-p3.png" width="23%" alt="the argument the demo cannot show" />
