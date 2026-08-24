@@ -5,11 +5,11 @@
 ### 丟一支影片進去，回一份看得懂、查得證、可行動的報告
 ### Drop a reel in, get a researched, verifiable, actionable report out
 
-**不只是 fact-check。講工具就驗工具能不能用，講地點就查在哪與怎麼訂，講數據才做重算——研究路徑跟著內容型態走。**
-**Not just fact-checking. Tools get tested, places get located, numbers get recomputed — the research path adapts to the content.**
+**不只是 fact-check。講工具就驗工具能不能用，講地點就查在哪與怎麼訂，講數據就重算，講教學就照做一次——研究路徑跟著內容型態走。**
+**Not just fact-checking. Tools get tested, places get located, numbers get recomputed, tutorials get followed — the research path adapts to the content.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-![Examples](https://img.shields.io/badge/examples-3%20reports-B23A2E.svg)
+![Examples](https://img.shields.io/badge/examples-4%20reports-B23A2E.svg)
 ![Routing](https://img.shields.io/badge/routing-6%20content%20types-8A2BE2.svg)
 ![Reproducible](https://img.shields.io/badge/scripts-reproducible-3C6B4F.svg)
 ![Language](https://img.shields.io/badge/lang-繁體中文%20%C2%B7%20EN-lightgrey.svg)
@@ -17,25 +17,27 @@
 **[繁體中文](#繁體中文)** · **[English](#english)**
 
 <p align="center">
-  <img src="docs/preview-div-p1.png" width="31%" alt="example 1 — 100 dividend stocks, recomputed" />
-  <img src="docs/preview-ai-p1.png" width="31%" alt="example 2 — 13 AI tools identified from frames" />
-  <img src="docs/preview-seoul-p1.png" width="31%" alt="example 3 — Seoul Seongsu places located from signage" />
+  <img src="docs/preview-div-p1.png" width="23%" alt="example 1 — 100 dividend stocks, recomputed" />
+  <img src="docs/preview-ai-p1.png" width="23%" alt="example 2 — 13 AI tools identified from frames" />
+  <img src="docs/preview-seoul-p1.png" width="23%" alt="example 3 — Seoul places located from signage" />
+  <img src="docs/preview-xls-p1.png" width="23%" alt="example 4 — Excel tutorial actually followed" />
 </p>
 
-<sub><b>三種完全不同的影片，同一套流程。</b>
-左：數據主張（100 家公司逐一重算）· 中：工具（旁白 0 個名字，從畫面認出 13 個）· 右：地點（沒有旁白，從招牌認出 8 個地點）<br/>
-Three very different reels, one pipeline. A data claim recomputed · 13 tools identified from frames alone · 8 places located from signage.</sub>
+<sub><b>四種完全不同的影片，同一套流程。</b>
+數據主張（100 家公司逐一重算）· 工具（旁白 0 個名字，從畫面認出 13 個）· 地點（沒有旁白，從招牌認出 8 個地點）· 教學（照做一次，第一次跑出 #NAME?）<br/>
+Four very different reels, one pipeline. A data claim recomputed · 13 tools identified from frames · 8 places located from signage · a tutorial actually executed.</sub>
 
 <br/>
 
 <p align="center">
-  <img src="docs/preview-div-p3.png" width="31%" alt="same company, two answers" />
-  <img src="docs/preview-ai-p2.png" width="31%" alt="identifying tools from logos" />
-  <img src="docs/preview-seoul-p3.png" width="31%" alt="addresses, hours, ratings" />
+  <img src="docs/preview-div-p3.png" width="23%" alt="same company, two answers" />
+  <img src="docs/preview-ai-p2.png" width="23%" alt="identifying tools from logos" />
+  <img src="docs/preview-seoul-p3.png" width="23%" alt="addresses, hours, ratings" />
+  <img src="docs/preview-xls-p3.png" width="23%" alt="the argument the demo cannot show" />
 </p>
 
-<sub>同一家公司兩種算法差 51 個百分點 · 從 logo 認工具 · 地址／營業時間／評價逐項落地<br/>
-One company, two answers, 51 points apart · reading logos · addresses, hours and ratings, item by item.</sub>
+<sub>同一家公司兩種算法差 51 個百分點 · 從 logo 認工具 · 地址／營業時間／評價逐項落地 · 教學教的參數在它自己的示範裡是隱形的<br/>
+One company, two answers 51 points apart · reading logos · addresses, hours and ratings · the argument the demo itself cannot show.</sub>
 
 </div>
 
@@ -68,7 +70,7 @@ One company, two answers, 51 points apart · reading logos · addresses, hours a
 
 > 完整路由規則在 skill 的 `references/routing.md`。
 
-### 三個實例
+### 四個實例
 
 #### 範例 1 · 數據主張型：「100 家公司把一半以上的盈餘配出去」
 
@@ -115,6 +117,20 @@ One company, two answers, 51 points apart · reading logos · addresses, hours a
 - **caption 的地名不能當定位依據。** 影片前 5 秒是皮膚科診所街與賣「KOREA」磁鐵的紀念品店，聖水洞沒有這種觀光商圈——**這段查不到具體位置，只能確定不是 caption 說的地方。**
 - 最後回答最實際的問題：**要不要預約。** 麵包店都是 walk-in，週末要排隊；韓國的排隊／訂位分工是 캐치테이블（訂位）、테이블링（遠端拿號）、네이버 예약（部分店家）。
 
+#### 範例 4 · 教學型：26 秒的 Excel 公式教學，照做一次
+
+📄 [`reports/04-excel-textjoin/report.pdf`](reports/04-excel-textjoin/report.pdf) · 🌐 [HTML](reports/04-excel-textjoin/report.html)
+
+一支 26 秒、**沒有旁白也沒有字幕**的螢幕錄影，一路把 `=TEXTJOIN(" ",TRUE,G2:I2)` 打完。
+
+教學型的查證跟其他類型不一樣：**公式寫對了、步驟也拍全了，你照做還是可能失敗**，因為卡住的地方通常在畫面外。所以這條路徑唯一有效的查證方式是**自己跑一遍，然後記錄卡在哪**——這裡是把畫面那張表重建，照打同一條公式，用 LibreOffice headless 實際計算。
+
+- **照做結果一致。** F2 算出 `Gujarat Surat Gujarati`，跟影片畫面完全一樣。公式本身沒問題。
+- **但第一次跑，八列全部 `#NAME?`。** 診斷結果不是版本問題，是**檔案格式的坑**：TEXTJOIN／CONCAT／IFS 這些後來才加進 Excel 的函式，在 xlsx 檔裡必須存成 `_xlfn.TEXTJOIN`。用程式產生 Excel 檔（openpyxl）照人看到的名字寫，Excel 與 LibreOffice 都會回 `#NAME?`。
+- **影片漏了版本這一步。** 微軟官方文件列的支援版本是 Microsoft 365／Excel 2024／2021／2019；**Excel 2016 及更早沒有這個函式**，照做會得到 `#NAME?`——看起來像打錯字，不像版本問題。
+- **它教的參數在它自己的示範裡是隱形的。** 影片示範的 8 列資料一格空的都沒有，所以 `ignore_empty` 給 `TRUE` 或 `FALSE` **輸出必然完全相同**。另外補 3 列有空格的資料，3 列全部不同——**這才是 TEXTJOIN 唯一勝過 `&` 串接的地方。**
+- **影片只算了 1 列就結束**，沒示範怎麼往下填。報告補上完整 8 步，並列出沒有新版 Excel 的三條替代路線（Google 試算表／LibreOffice／`&` 串接，各自的代價）。
+
 ### 自己重跑（範例 1 的數據）
 
 ```bash
@@ -123,6 +139,15 @@ python3 data/payout_check.py     # 逐家查 98 檔，輸出 payout_check.csv
 ```
 
 資料來源 Yahoo Finance，免費公開。腳本裡的 `CARDS` 就是影片 20 張字卡的原文——**改掉它就能驗別的清單影片**。明細（每家的配息比率、每股盈餘、產業分類、兩種算法結果）在 [`data/payout_check.csv`](data/payout_check.csv)。
+
+範例 4 的教學也可以自己跑一次：
+
+```bash
+pip install openpyxl
+python3 data/textjoin_test.py    # 需要先裝 LibreOffice
+```
+
+腳本會重建影片那張表、照打公式、叫 LibreOffice 實際計算，再把 `TRUE` / `FALSE` / `CONCAT` / `&` 四種做法並排印出來。
 
 ### 流程長什麼樣
 
@@ -137,6 +162,7 @@ python3 data/payout_check.py     # 逐家查 98 檔，輸出 payout_check.csv
 | 坑 | 後果 | 現在怎麼做 |
 |---|---|---|
 | 用場景變化偵測抽幀 | 靜態畫面的影片只抽到 1 幀，整支漏光，**而且不會報錯** | 先判斷影片動不動，靜態就**逐秒硬抽** |
+| 抽幀時開著「去重複」 | 螢幕錄影教學裡唯一在變的是公式列那幾個字，佔畫面不到 1% 像素 → 被當成重複丟掉，打字過程整段消失 | **螢幕錄影一律關掉去重複**，改固定間隔硬抽 |
 | 相信 logo 外觀 | 把 Cowork 認成 Zapier | **有文字標籤時文字優先** |
 | 相信 caption 的地名 | 影片有一段根本不在那裡拍 | caption 只當線索，用畫面裡的地標交叉驗證 |
 | 引用比率卻不說算法 | 同一家公司差 51 個百分點 | **一律標明分子與分母** |
@@ -146,7 +172,7 @@ python3 data/payout_check.py     # 逐家查 98 檔，輸出 payout_check.csv
 
 ### 免責
 
-工具可用性查證、地點與交通整理、數據重算。**不含個股買賣建議，也不含工具或商家推薦與代言。**
+工具可用性查證、地點與交通整理、數據重算、教學可行性查核。**不含個股買賣建議，也不含工具、商家或軟體的推薦與代言。**
 價格、費率、營業時間與配息比率為 2026-08 實測，都會變動。影片內容一律視為**待驗證資料**。
 
 ---
@@ -178,7 +204,7 @@ One generic "fact-check" doesn't fit every video. For a tool video you want *doe
 
 > Full routing rules live in the skill's `references/routing.md`.
 
-### Three worked examples
+### Four worked examples
 
 #### Example 1 · A data claim: "100 stocks that pay more than half their profits as dividends"
 
@@ -225,6 +251,20 @@ An ambience reel from Seongsu, Seoul: **music only — the speech transcript cam
 - **A caption's place name is not a location.** The first 5 seconds show a street of dermatology clinics and a shop selling "KOREA" fridge magnets. Seongsu has no such tourist strip — **that segment could not be located, only ruled out.**
 - Finally, the practical question: **do you need a reservation?** The bakeries are walk-in with weekend queues; in Korea the split is CatchTable (reservations), Tabling (remote queueing), Naver Reservation (some venues).
 
+#### Example 4 · A tutorial: a 26-second Excel formula lesson, actually followed
+
+📄 [`reports/04-excel-textjoin/report.pdf`](reports/04-excel-textjoin/report.pdf) · 🌐 [HTML](reports/04-excel-textjoin/report.html)
+
+A 26-second screen recording — **no voiceover, no captions** — typing out `=TEXTJOIN(" ",TRUE,G2:I2)`.
+
+Tutorials verify differently from everything else: **the formula can be right and every step on camera, and following it still fails**, because what stops you is usually off-screen. So the only verification that works here is **running it yourself and recording where it breaks** — the sheet was rebuilt, the same formula typed, and LibreOffice headless actually computed it.
+
+- **The result matches.** F2 evaluates to `Gujarat Surat Gujarati`, exactly as shown. The formula is fine.
+- **But the first run returned `#NAME?` on all eight rows.** Not a version problem — a **file-format trap**: post-spec functions like TEXTJOIN/CONCAT/IFS must be stored as `_xlfn.TEXTJOIN` inside an xlsx. Write the human-visible name from code (openpyxl) and both Excel and LibreOffice return `#NAME?`.
+- **The reel skips the version step.** Microsoft's own docs list Microsoft 365 / Excel 2024 / 2021 / 2019; **Excel 2016 and earlier don't have the function at all**, and the error you get looks like a typo, not a version mismatch.
+- **The argument it teaches is invisible in its own demo.** None of the 8 demo rows has an empty cell, so `ignore_empty` set to `TRUE` or `FALSE` **must** produce identical output. Add three rows with gaps and all three differ — **which is the one thing TEXTJOIN does that `&` concatenation doesn't.**
+- **Only one row was ever computed** on camera, with no fill-down shown. The report supplies all 8 steps plus three fallback routes for anyone without a recent Excel (Google Sheets / LibreOffice / `&`), and what each costs.
+
 ### Reproduce it (example 1's data)
 
 ```bash
@@ -233,6 +273,15 @@ python3 data/payout_check.py     # queries 98 tickers, writes payout_check.csv
 ```
 
 Data comes from Yahoo Finance — free and public. The `CARDS` list in the script is the verbatim on-screen text of all 20 cards — **swap it out to verify a different list video**. Per-company detail (payout ratio, EPS, sector, both definitions) is in [`data/payout_check.csv`](data/payout_check.csv).
+
+Example 4's tutorial is reproducible too:
+
+```bash
+pip install openpyxl
+python3 data/textjoin_test.py    # needs LibreOffice installed
+```
+
+It rebuilds the sheet, types the formula, has LibreOffice compute it, and prints `TRUE` / `FALSE` / `CONCAT` / `&` side by side.
 
 ### The pipeline
 
@@ -247,6 +296,7 @@ Data comes from Yahoo Finance — free and public. The `CARDS` list in the scrip
 | Trap | Consequence | What the pipeline does now |
 |---|---|---|
 | Scene-change frame extraction | A static reel yields 1 frame and everything is missed — **with no error raised** | Check whether the reel actually moves; force dense extraction if not |
+| Leaving near-duplicate dropping on | In a screencast the only thing changing is a few characters in the formula bar — under 1% of pixels — so the typing gets discarded as duplicate | **Disable dedup for screencasts**; sample at a fixed interval |
 | Trusting logo appearance | Cowork read as Zapier | **When a text label exists, text wins** |
 | Trusting the caption's place name | Part of the reel wasn't shot there at all | Treat the caption as a lead; cross-check against landmarks in frame |
 | Quoting a ratio without its formula | The same company, 51 points apart | **Always state numerator and denominator** |
@@ -256,7 +306,7 @@ Data comes from Yahoo Finance — free and public. The `CARDS` list in the scrip
 
 ### Disclaimer
 
-Tool-availability verification, location and transit research, and recomputation of public data. **Not investment advice, and not an endorsement of any product or venue.** Prices, rates, opening hours, and payout ratios measured 2026-08; all of them change. Video content is treated as **unverified data** throughout.
+Tool-availability verification, location and transit research, recomputation of public data, and tutorial feasibility checks. **Not investment advice, and not an endorsement of any product, venue, or software.** Prices, rates, opening hours, and payout ratios measured 2026-08; all of them change. Video content is treated as **unverified data** throughout.
 
 ---
 
