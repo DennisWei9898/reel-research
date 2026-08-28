@@ -11,6 +11,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Examples](https://img.shields.io/badge/examples-4%20reports-B23A2E.svg)
 ![Routing](https://img.shields.io/badge/routing-6%20content%20types-8A2BE2.svg)
+![Skill](https://img.shields.io/badge/skill-included-9A7B33.svg)
 ![Reproducible](https://img.shields.io/badge/scripts-reproducible-3C6B4F.svg)
 ![Language](https://img.shields.io/badge/lang-繁體中文%20%C2%B7%20EN-lightgrey.svg)
 
@@ -68,7 +69,7 @@ The 20 named companies that fail the claim, with their real payout ratios · rea
 | **E 開箱／購物** | 商品推薦 | 認出型號 → 比價 → 找負評 | 型號 ＋ 目前價格 ＋ 反面意見 |
 | **F 混合** | 同時有好幾種 | 拆成多個區塊，各走各的路徑 | 分區塊的報告 |
 
-> 完整路由規則在 skill 的 `references/routing.md`。
+> 完整路由規則在 [`skill/references/routing.md`](skill/references/routing.md)。
 
 ### 四個實例
 
@@ -149,6 +150,31 @@ python3 data/textjoin_test.py    # 需要先裝 LibreOffice
 
 腳本會重建影片那張表、照打公式、叫 LibreOffice 實際計算，再把 `TRUE` / `FALSE` / `CONCAT` / `&` 四種做法並排印出來。
 
+### 這套流程本身（skill）
+
+上面四份報告不是手工做的，是同一支 skill 跑出來的。**它就在 [`skill/`](skill/) 裡**：
+
+| 檔案 | 內容 |
+|---|---|
+| [`SKILL.md`](skill/SKILL.md) | 六階段主流程、抽幀策略表、命名規則、反模式清單 |
+| [`references/routing.md`](skill/references/routing.md) | **六種內容類型的研究路徑**，含每條路徑實跑後的教訓 |
+| [`references/failure-modes.md`](skill/references/failure-modes.md) | 十大失效模式與判定尺度 |
+| [`references/report-template.md`](skill/references/report-template.md) | 報告的硬結構與內容紀律 |
+| [`assets/report.css`](skill/assets/report.css) | A4 印刷稿樣式，模板要求的元件 class 都在這裡 |
+| [`scripts/verify_pdf.sh`](skill/scripts/verify_pdf.sh) | 交付前三道機械檢查：頁數 1:1／中文字數／每頁墨水覆蓋率 |
+| [`scripts/make_pdf.sh`](skill/scripts/make_pdf.sh) | HTML → PDF |
+
+**在 Claude Code 裡使用**：把 `skill/` 整個複製到 `~/.claude/skills/reel-research/`，
+之後丟一支影片連結進去就會走這套流程。
+
+```bash
+cp -R skill ~/.claude/skills/reel-research
+```
+
+**不用 Claude Code 也能用**：`SKILL.md` 與 `references/` 是純文字的方法論，
+可以直接當成 prompt 貼給任何模型；`scripts/` 是獨立的 bash，
+`verify_pdf.sh <report.html> <期望頁數>` 對任何 A4 HTML 報告都能跑。
+
 ### 流程長什麼樣
 
 1. **拆影片**——抽幀＋逐字稿。**畫面字卡優先於語音逐字稿**（ASR 對專有名詞漂字嚴重），caption 也要另外抓（caption 常宣稱畫面沒演的東西）
@@ -202,7 +228,7 @@ One generic "fact-check" doesn't fit every video. For a tool video you want *doe
 | **E Unboxing / shopping** | Product recommendations | Identify the model → compare prices → find the negative reviews | Model + current price + the other side |
 | **F Mixed** | Several at once | Split into sections, route each separately | Sectioned report |
 
-> Full routing rules live in the skill's `references/routing.md`.
+> Full routing rules live in [`skill/references/routing.md`](skill/references/routing.md).
 
 ### Four worked examples
 
@@ -282,6 +308,28 @@ python3 data/textjoin_test.py    # needs LibreOffice installed
 ```
 
 It rebuilds the sheet, types the formula, has LibreOffice compute it, and prints `TRUE` / `FALSE` / `CONCAT` / `&` side by side.
+
+### The pipeline itself (the skill)
+
+The four reports above weren't hand-made — one skill produced all of them, and **it lives in [`skill/`](skill/)**:
+
+| File | What it holds |
+|---|---|
+| [`SKILL.md`](skill/SKILL.md) | The six-phase flow, frame-extraction strategy table, naming rules, anti-patterns |
+| [`references/routing.md`](skill/references/routing.md) | **The six content-type research paths**, each with the lessons from actually running it |
+| [`references/failure-modes.md`](skill/references/failure-modes.md) | Ten failure modes and the verdict scale |
+| [`references/report-template.md`](skill/references/report-template.md) | The report's required structure and content discipline |
+| [`assets/report.css`](skill/assets/report.css) | A4 print-dossier styling; every component class the template requires lives here |
+| [`scripts/verify_pdf.sh`](skill/scripts/verify_pdf.sh) | Three pre-delivery checks: page count 1:1 / CJK char count / per-page ink coverage |
+| [`scripts/make_pdf.sh`](skill/scripts/make_pdf.sh) | HTML → PDF |
+
+**With Claude Code**: copy `skill/` to `~/.claude/skills/reel-research/`, then hand it a reel link.
+
+```bash
+cp -R skill ~/.claude/skills/reel-research
+```
+
+**Without Claude Code**: `SKILL.md` and `references/` are plain-text methodology — paste them as a prompt into any model. `scripts/` is standalone bash; `verify_pdf.sh <report.html> <expected-pages>` works on any A4 HTML report.
 
 ### The pipeline
 
