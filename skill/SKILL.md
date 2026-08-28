@@ -212,6 +212,18 @@ grep -inE '<使用者名>|/Users/|<內部專案名>' 公開版.html   # 需 0 �
 ```
 ① 頁數 1:1　② 中文字元 >1000　③ 每頁墨水覆蓋率 1–60%
 
+**交付物含 README 或任何文件時，再跑第四道**：
+```bash
+~/.claude/skills/reel-research/scripts/verify_links.sh          # 整個目錄
+~/.claude/skills/reel-research/scripts/verify_links.sh README.md
+```
+④ 每個相對連結都指向真實存在的檔案　＋　沒有無人引用的孤兒圖檔
+
+> 🔴 **實測教訓（2026-08-25）**：一份 README 兩次指向 `references/routing.md`，
+> 但那個檔案只存在於作者電腦上——**本機看一切正常，clone 下來才會壞，而且沒有任何警告**。
+> 反向也一樣：從文件裡刪掉一張圖、檔案卻留在 repo，同樣沒人會提醒你。
+> **只要交付物裡有連結，就不能只靠肉眼。**
+
 **三道機械檢查過了還要肉眼逐頁看。** 機械檢查抓不到「表格排版壞掉但字都在」這類問題。
 
 產 PDF：

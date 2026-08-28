@@ -162,6 +162,8 @@ python3 data/textjoin_test.py    # 需要先裝 LibreOffice
 | [`references/report-template.md`](skill/references/report-template.md) | 報告的硬結構與內容紀律 |
 | [`assets/report.css`](skill/assets/report.css) | A4 印刷稿樣式，模板要求的元件 class 都在這裡 |
 | [`scripts/verify_pdf.sh`](skill/scripts/verify_pdf.sh) | 交付前三道機械檢查：頁數 1:1／中文字數／每頁墨水覆蓋率 |
+| [`scripts/verify_links.sh`](skill/scripts/verify_links.sh) | 第四道檢查：每個相對連結都存在，且沒有無人引用的孤兒圖檔 |
+| [`scripts/verify_links.sh`](skill/scripts/verify_links.sh) | A fourth check: every relative link resolves, and no image sits unreferenced |
 | [`scripts/make_pdf.sh`](skill/scripts/make_pdf.sh) | HTML → PDF |
 
 **在 Claude Code 裡使用**：把 `skill/` 整個複製到 `~/.claude/skills/reel-research/`，
@@ -173,7 +175,8 @@ cp -R skill ~/.claude/skills/reel-research
 
 **不用 Claude Code 也能用**：`SKILL.md` 與 `references/` 是純文字的方法論，
 可以直接當成 prompt 貼給任何模型；`scripts/` 是獨立的 bash，
-`verify_pdf.sh <report.html> <期望頁數>` 對任何 A4 HTML 報告都能跑。
+`verify_pdf.sh <report.html> <期望頁數>` 對任何 A4 HTML 報告都能跑，
+`verify_links.sh` 對任何有相對連結的 repo 都能跑。
 
 ### 流程長什麼樣
 
@@ -329,7 +332,7 @@ The four reports above weren't hand-made — one skill produced all of them, and
 cp -R skill ~/.claude/skills/reel-research
 ```
 
-**Without Claude Code**: `SKILL.md` and `references/` are plain-text methodology — paste them as a prompt into any model. `scripts/` is standalone bash; `verify_pdf.sh <report.html> <expected-pages>` works on any A4 HTML report.
+**Without Claude Code**: `SKILL.md` and `references/` are plain-text methodology — paste them as a prompt into any model. `scripts/` is standalone bash; `verify_pdf.sh <report.html> <expected-pages>` works on any A4 HTML report, and `verify_links.sh` works on any repo with relative links.
 
 ### The pipeline
 
