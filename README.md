@@ -154,8 +154,12 @@ python3 data/textjoin_test.py    # 需要先裝 LibreOffice
 
 #### 範例 5 · 截圖型數據主張：「ChatGPT 拿 10 萬美元炒成 17.89 萬」
 
-📄 [`reports/05-ai-arena/report.pdf`](reports/05-ai-arena/report.pdf) · 🌐 [HTML](reports/05-ai-arena/report.html)
-　　白話版 📄 [`eli5.pdf`](reports/05-ai-arena/eli5.pdf) · 🌐 [HTML](reports/05-ai-arena/eli5.html)
+**查證報告**（給要核對數字的人）　📄 [`report.pdf`](reports/05-ai-arena/report.pdf) · 🌐 [HTML](reports/05-ai-arena/report.html)
+**白話版 ELI5**（給沒有金融背景的人）　📄 [`eli5.pdf`](reports/05-ai-arena/eli5.pdf) · 🌐 [HTML](reports/05-ai-arena/eli5.html)
+
+> **同一份查證，兩種產出。** 查證報告回答「這張截圖能不能信」，逐格重算、附反例；
+> 白話版回答「所以哪個 AI 比較會投資、為什麼」，用自助餐比喻解釋「集中重押」，
+> 並標出 8 個模型裡有 5 個查不到數字。**同樣的事實，不同的讀者要的是不同的東西。**
 
 一張 IG 截圖：某 AI 投資組合的持股表，下方寫著 TOTAL PNL `$78,850`。**輸入只有一張圖，沒有影片、沒有旁白。**
 
@@ -331,8 +335,14 @@ It rebuilds the sheet, types the formula, has LibreOffice compute it, and prints
 
 #### Example 5 · A screenshot claim: "ChatGPT turned $100K into $178.9K"
 
-📄 [`reports/05-ai-arena/report.pdf`](reports/05-ai-arena/report.pdf) · 🌐 [HTML](reports/05-ai-arena/report.html)
-　　Plain-language version 📄 [`eli5.pdf`](reports/05-ai-arena/eli5.pdf) · 🌐 [HTML](reports/05-ai-arena/eli5.html)
+**Audit report** (for readers who want to check the arithmetic)　📄 [`report.pdf`](reports/05-ai-arena/report.pdf) · 🌐 [HTML](reports/05-ai-arena/report.html)
+**Plain-language version** (for readers with no finance background)　📄 [`eli5.pdf`](reports/05-ai-arena/eli5.pdf) · 🌐 [HTML](reports/05-ai-arena/eli5.html)
+
+> **One investigation, two deliverables.** The audit answers "can this screenshot be trusted",
+> recomputing every cell and supplying counterexamples. The plain-language version answers
+> "so which AI is the better investor, and why" — explaining concentration through a buffet
+> analogy and flagging that 5 of the 8 models have no published figures.
+> **Same facts, different readers, different artefact.**
 
 One Instagram screenshot: an AI portfolio's holdings table with `TOTAL PNL $78,850` underneath. **The only input is a still image — no video, no voiceover.**
 
