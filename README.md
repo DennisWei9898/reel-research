@@ -156,6 +156,7 @@ python3 data/textjoin_test.py    # 需要先裝 LibreOffice
 
 **查證報告**（給要核對數字的人）　📄 [`report.pdf`](reports/05-ai-arena/report.pdf) · 🌐 [HTML](reports/05-ai-arena/report.html)
 **白話版 ELI5**（給沒有金融背景的人）　📄 [`eli5.pdf`](reports/05-ai-arena/eli5.pdf) · 🌐 [HTML](reports/05-ai-arena/eli5.html)
+**線上版**（可直接用瀏覽器開，手機也能看）　🔗 [AI 選股擂台記分板](https://claude.ai/code/artifact/4d395c2e-aaf7-4bf5-9d0b-0a90b7ed3908)
 
 > **同一份查證，兩種產出，兩種視覺。** 查證報告走印刷稿風（米色紙＋磚紅），
 > 白話版走**米白＋橘**（`<div class="deck eli5">` 一個 class 切換，元件規則共用）。
@@ -339,6 +340,7 @@ It rebuilds the sheet, types the formula, has LibreOffice compute it, and prints
 
 **Audit report** (for readers who want to check the arithmetic)　📄 [`report.pdf`](reports/05-ai-arena/report.pdf) · 🌐 [HTML](reports/05-ai-arena/report.html)
 **Plain-language version** (for readers with no finance background)　📄 [`eli5.pdf`](reports/05-ai-arena/eli5.pdf) · 🌐 [HTML](reports/05-ai-arena/eli5.html)
+**Live page** (opens in a browser, reads well on a phone)　🔗 [AI Arena Scoreboard](https://claude.ai/code/artifact/4d395c2e-aaf7-4bf5-9d0b-0a90b7ed3908)
 
 > **One investigation, two deliverables, two palettes.** The audit uses the print-dossier look;
 > the plain-language version uses a fixed cream-and-orange theme (`<div class="deck eli5">` swaps
