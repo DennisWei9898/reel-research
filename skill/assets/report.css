@@ -252,3 +252,23 @@
 .fine{font-size:9.6px;line-height:1.6;color:var(--ink-soft);margin-top:7px}
 .warn{color:var(--accent);font-size:.88em}
 @media screen{html{background:var(--desk)}.deck{padding:26px 0 46px}}
+
+/* ── ELI5／白話版主題：米白＋橘 ─────────────────────────────────
+   用法：<div class="deck eli5"> —— 只換 token，元件規則完全共用。
+   規則一：**只有 ELI5／白話版走這組**；查證報告與稽核報告維持印刷稿風。
+   規則二：**米白是固定底色，不做深淺色模式判斷。**
+           不要寫 prefers-color-scheme，也不要看 data-theme——
+           但每個顏色（含 body 背景）都要明確塗上，頁面才不會借到宿主底色。
+   色票與 newbie-handbook-neutral skill 同一組，不要另外挑色。          */
+.deck.eli5{
+  --paper:#FAF9F5; --paper-2:#F3ECE0; --card:#FFFDF8;
+  --ink:#26241F; --ink-soft:#5A554B;
+  --line:#E6DCCB; --accent:#D97757; --accent-soft:#F8E6DA;
+  --gold:#BE5C39; --good:#5E8B6A; --mid:#C9A24B; --gray:#B5AC9C;
+}
+.deck.eli5 .page{background:var(--paper)}
+.deck.eli5 .pt th{background:#3A342C}
+.deck.eli5 .pt{background:var(--card)}
+.deck.eli5 .eg,.deck.eli5 .shot{background:var(--card)}
+@media screen{ .deck.eli5{background:#E8E0D3} }
+@media print{ .deck.eli5{background:none} }

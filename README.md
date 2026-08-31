@@ -157,7 +157,9 @@ python3 data/textjoin_test.py    # 需要先裝 LibreOffice
 **查證報告**（給要核對數字的人）　📄 [`report.pdf`](reports/05-ai-arena/report.pdf) · 🌐 [HTML](reports/05-ai-arena/report.html)
 **白話版 ELI5**（給沒有金融背景的人）　📄 [`eli5.pdf`](reports/05-ai-arena/eli5.pdf) · 🌐 [HTML](reports/05-ai-arena/eli5.html)
 
-> **同一份查證，兩種產出。** 查證報告回答「這張截圖能不能信」，逐格重算、附反例；
+> **同一份查證，兩種產出，兩種視覺。** 查證報告走印刷稿風（米色紙＋磚紅），
+> 白話版走**米白＋橘**（`<div class="deck eli5">` 一個 class 切換，元件規則共用）。
+> 查證報告回答「這張截圖能不能信」，逐格重算、附反例；
 > 白話版回答「所以哪個 AI 比較會投資、為什麼」，用自助餐比喻解釋「集中重押」，
 > 並標出 8 個模型裡有 5 個查不到數字。**同樣的事實，不同的讀者要的是不同的東西。**
 
@@ -338,7 +340,10 @@ It rebuilds the sheet, types the formula, has LibreOffice compute it, and prints
 **Audit report** (for readers who want to check the arithmetic)　📄 [`report.pdf`](reports/05-ai-arena/report.pdf) · 🌐 [HTML](reports/05-ai-arena/report.html)
 **Plain-language version** (for readers with no finance background)　📄 [`eli5.pdf`](reports/05-ai-arena/eli5.pdf) · 🌐 [HTML](reports/05-ai-arena/eli5.html)
 
-> **One investigation, two deliverables.** The audit answers "can this screenshot be trusted",
+> **One investigation, two deliverables, two palettes.** The audit uses the print-dossier look;
+> the plain-language version uses a fixed cream-and-orange theme (`<div class="deck eli5">` swaps
+> the tokens; every component rule is shared).
+> The audit answers "can this screenshot be trusted",
 > recomputing every cell and supplying counterexamples. The plain-language version answers
 > "so which AI is the better investor, and why" — explaining concentration through a buffet
 > analogy and flagging that 5 of the 8 models have no published figures.

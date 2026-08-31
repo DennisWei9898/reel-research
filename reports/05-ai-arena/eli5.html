@@ -258,18 +258,35 @@
 .warn{color:var(--accent);font-size:.88em}
 @media screen{html{background:var(--desk)}.deck{padding:26px 0 46px}}
 
+/* ── ELI5／白話版主題：米白＋橘 ─────────────────────────────────
+   用法：<div class="deck eli5"> —— 只換 token，元件規則完全共用。
+   規則：**只有 ELI5／白話版走這組**；查證報告與稽核報告維持印刷稿深色調。
+   色票與 newbie-handbook-neutral skill 同一組，不要另外挑色。          */
+.deck.eli5{
+  --paper:#FAF9F5; --paper-2:#F3ECE0; --card:#FFFDF8;
+  --ink:#26241F; --ink-soft:#5A554B;
+  --line:#E6DCCB; --accent:#D97757; --accent-soft:#F8E6DA;
+  --gold:#BE5C39; --good:#5E8B6A; --mid:#C9A24B; --gray:#B5AC9C;
+}
+.deck.eli5 .page{background:var(--paper)}
+.deck.eli5 .pt th{background:#3A342C}
+.deck.eli5 .pt{background:var(--card)}
+.deck.eli5 .eg,.deck.eli5 .shot{background:var(--card)}
+@media screen{ .deck.eli5{background:#E8E0D3} }
+@media print{ .deck.eli5{background:none} }
+
 .bignum .n.good,.bignum .n.bad{font-size:26px}
 .barchart{border:1px solid var(--line);background:#FFFDF8;padding:14px 16px;margin:10px 0}
 .barchart .row{display:grid;grid-template-columns:118px 1fr;align-items:center;gap:10px;margin:7px 0}
 .barchart .lb{font:700 11px var(--sans);text-align:right}
 .barchart .tr{display:flex;align-items:center;gap:8px;min-width:0}
 .barchart .bar{height:22px}
-.barchart .b1{background:var(--accent)}.barchart .b2{background:var(--good)}
+.barchart .b1{background:#D97757}.barchart .b2{background:var(--good)}
 .barchart .b3{background:var(--gold)}.barchart .b4{background:var(--gray)}
 .barchart .bar span{color:var(--paper);font:700 12px var(--sans);float:right;margin-right:9px;line-height:22px}
 .barchart .tr em{font:700 11px var(--sans);font-style:normal;color:var(--ink-soft)}
 </style></head>
-<body><div class="deck">
+<body><div class="deck eli5">
 <section class="page">
 <header class="runhead"><span>AI 選股擂台 · 白話版</span><span class="at">@ 誰第一</span></header>
 
