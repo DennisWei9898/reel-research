@@ -9,7 +9,7 @@
 **Not just fact-checking. Tools get tested, places get located, numbers get recomputed, tutorials get followed — the research path adapts to the content.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-![Examples](https://img.shields.io/badge/examples-4%20reports-B23A2E.svg)
+![Examples](https://img.shields.io/badge/examples-5%20reports-B23A2E.svg)
 ![Routing](https://img.shields.io/badge/routing-6%20content%20types-8A2BE2.svg)
 ![Skill](https://img.shields.io/badge/skill-included-9A7B33.svg)
 ![Reproducible](https://img.shields.io/badge/scripts-reproducible-3C6B4F.svg)
@@ -22,6 +22,7 @@
   <img src="docs/preview-ai-p1.png" width="23%" alt="example 2 — 13 AI tools identified from frames" />
   <img src="docs/preview-seoul-p1.png" width="23%" alt="example 3 — Seoul places located from signage" />
   <img src="docs/preview-xls-p1.png" width="23%" alt="example 4 — Excel tutorial actually followed" />
+  <img src="docs/preview-arena-p1.png" width="23%" alt="example 5 — a portfolio screenshot audited" />
 </p>
 
 <sub><b>四種完全不同的影片，同一套流程。</b>
@@ -35,6 +36,7 @@ Four very different reels, one pipeline. A data claim recomputed · 13 tools ide
   <img src="docs/preview-ai-p2.png" width="23%" alt="identifying tools from logos" />
   <img src="docs/preview-seoul-p3.png" width="23%" alt="addresses, hours, ratings" />
   <img src="docs/preview-xls-p3.png" width="23%" alt="the argument the demo cannot show" />
+  <img src="docs/preview-arena-eli5.png" width="23%" alt="why some models made money" />
 </p>
 
 <sub>被點名卻不符合的 20 家，逐檔列出實際配息比率 · 從 logo 認工具 · 地址／營業時間／評價逐項落地 · 教學教的參數在它自己的示範裡是隱形的<br/>
@@ -71,7 +73,7 @@ The 20 named companies that fail the claim, with their real payout ratios · rea
 
 > 完整路由規則在 [`skill/references/routing.md`](skill/references/routing.md)。
 
-### 四個實例
+### 五個實例
 
 #### 範例 1 · 數據主張型：「100 家公司把一半以上的盈餘配出去」
 
@@ -149,6 +151,21 @@ python3 data/textjoin_test.py    # 需要先裝 LibreOffice
 ```
 
 腳本會重建影片那張表、照打公式、叫 LibreOffice 實際計算，再把 `TRUE` / `FALSE` / `CONCAT` / `&` 四種做法並排印出來。
+
+#### 範例 5 · 截圖型數據主張：「ChatGPT 拿 10 萬美元炒成 17.89 萬」
+
+📄 [`reports/05-ai-arena/report.pdf`](reports/05-ai-arena/report.pdf) · 🌐 [HTML](reports/05-ai-arena/report.html)
+　　白話版 📄 [`eli5.pdf`](reports/05-ai-arena/eli5.pdf) · 🌐 [HTML](reports/05-ai-arena/eli5.html)
+
+一張 IG 截圖：某 AI 投資組合的持股表，下方寫著 TOTAL PNL `$78,850`。**輸入只有一張圖，沒有影片、沒有旁白。**
+
+- **先驗真偽，再驗主張。** 用「市值 ÷ 股數」推算每檔現價去對真實收盤價：**10 檔有 9 檔誤差在 1.7% 以內**，股數全是整數。**資料沒有造假。**
+- **但十列加總對不上總計。** 逐列自洽（市值−成本=損益，10/10 吻合），可是 **10 列損益加總只有 $27,400，畫面寫 $78,850** —— 差 $51,450。而且 10 列成本加總＋現金 = **$151,449，不是 $100,000**。
+- **缺口的解釋，正好就是問題所在。** TOTAL PNL 含已實現損益，表格卻只列現在還持有的部位。**截圖給了你分子，沒給你分母** —— 你看不到它買過什麼、賣在哪、有沒有停損。
+- **看得到的部分剛好只跟大盤打平。** 那 10 檔的報酬率 **+18.19%**，同期 S&P 500 **+18.17%**（自行用免費資料重算）。超額報酬全在畫面外。
+- **對照組被裁掉了。** 出處是一場 **8 個模型同場競技**的公開實驗，截圖只截了其中一個。而且 2026-01 的第一名是另一個模型 —— **名次會換**。
+
+> **這個範例示範的是：資料全部為真，結論仍然不成立。** 只查「有沒有造假」會全部放行。
 
 ### 這套流程本身（skill）
 
@@ -233,7 +250,7 @@ One generic "fact-check" doesn't fit every video. For a tool video you want *doe
 
 > Full routing rules live in [`skill/references/routing.md`](skill/references/routing.md).
 
-### Four worked examples
+### Five worked examples
 
 #### Example 1 · A data claim: "100 stocks that pay more than half their profits as dividends"
 
@@ -311,6 +328,21 @@ python3 data/textjoin_test.py    # needs LibreOffice installed
 ```
 
 It rebuilds the sheet, types the formula, has LibreOffice compute it, and prints `TRUE` / `FALSE` / `CONCAT` / `&` side by side.
+
+#### Example 5 · A screenshot claim: "ChatGPT turned $100K into $178.9K"
+
+📄 [`reports/05-ai-arena/report.pdf`](reports/05-ai-arena/report.pdf) · 🌐 [HTML](reports/05-ai-arena/report.html)
+　　Plain-language version 📄 [`eli5.pdf`](reports/05-ai-arena/eli5.pdf) · 🌐 [HTML](reports/05-ai-arena/eli5.html)
+
+One Instagram screenshot: an AI portfolio's holdings table with `TOTAL PNL $78,850` underneath. **The only input is a still image — no video, no voiceover.**
+
+- **Authenticate first, then test the claim.** Dividing each position's market value by its share count gives an implied price; **9 of 10 land within 1.7% of the real close**, and every share count is a whole number. **The data is genuine.**
+- **But the rows don't sum to the total.** Each row is internally consistent (value − cost = P&L, 10/10), yet **the ten rows sum to $27,400 against a displayed $78,850** — a $51,450 gap. Cost basis plus cash is **$151,449, not $100,000**.
+- **The explanation for the gap is the problem.** TOTAL PNL includes realised gains; the table lists only current holdings. **The screenshot hands you the numerator and withholds the denominator** — you cannot see what was bought, sold, or stopped out.
+- **What you can see merely matched the index.** Those ten positions returned **+18.19%**; the S&P 500 returned **+18.17%** over the same span (recomputed from free data). The excess sits entirely off-screen.
+- **The control group was cropped out.** The source is a public experiment with **eight models competing on equal terms**; the screenshot shows one. A different model led in January — **the ranking changes.**
+
+> **What this example demonstrates: every number can be real and the conclusion still fail.** Checking only for fabrication would have passed it.
 
 ### The pipeline itself (the skill)
 

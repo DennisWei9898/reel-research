@@ -1,0 +1,397 @@
+<!doctype html><html lang="zh-Hant"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ChatGPT 炒股 17.89 萬截圖查證</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@500;700;900&family=Roboto+Mono:wght@500;700&display=swap">
+<style>/* Reel Fact Report — 影片主張查證報告樣式
+   設計要旨：A4 紙張浮在暖灰桌面上；米色紙底＋細點紋；磚紅重點色；
+   襯線大標＋無襯線內文＋等寬小標（全大寫、寬字距）。
+   刻意單一視覺（印刷稿感），不做深色模式；但 body 必須明確塗背景（--desk）。
+   字型：優先 Google Fonts 的 Noto Serif TC / Noto Sans TC / Roboto Mono，
+   本機字型只當 fallback——不要假設觀看者是 macOS。*/
+
+/*
+      Assumptions approved by the user:
+      - Audience: high-school students with no database/cloud background.
+      - Purpose: explain the industry logic, not recommend a trade.
+      - Format: one self-contained HTML document with eight printable A4 sections.
+      - Visual system: print-dossier; conceptual icons only, no decorative imagery.
+    */
+    :root{
+      --paper:#FAF7F1; --paper-2:#F3EEE4; --ink:#1C1A17; --ink-soft:#544E45;
+      --line:#D8D0C2; --accent:#B23A2E; --accent-soft:#E9D6D1; --gold:#9A7B33;
+      --good:#3C6B4F; --mid:#C9A24B; --gray:#B5AC9C; --desk:#7E7A73;
+      --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+      --sans:"Noto Sans TC","Heiti TC","Hiragino Sans","PingFang TC","Microsoft JhengHei",sans-serif;
+      --mono:"Roboto Mono","SFMono-Regular",Consolas,"Heiti TC","Hiragino Sans",monospace;
+    }
+    /* 🔴 2026-08-24 實測發現（dogfooding 抓到）：
+       --mono（Roboto Mono）**沒有中文字**。用 `font:700 9px var(--mono)` 這種
+       shorthand 會把整個 font-family 換掉，中文就沒有任何字型可用——
+       **瀏覽器畫得出來（會自己 fallback），但 headless Chrome 列印 PDF 時不做語言 fallback，
+       那段中文會整段消失，而且 pdftotext 也抓不到**（文字層根本沒有）。
+       規則：--mono 只給拉丁字（數字、頁碼、全大寫英文標籤）。
+       任何會出現中文的地方一律用 --sans / --serif。
+       保險：讓 mono stack 尾端帶中文字型，萬一誤用也不會整段消失。 */
+    :root{--mono-cjk:"Roboto Mono","Heiti TC","Hiragino Sans",monospace}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--desk);color:var(--ink);font-family:var(--sans);line-height:1.72}
+    a{color:var(--gold);text-underline-offset:3px}
+    a:hover{color:var(--accent)}
+    svg{display:block}
+    .deck{display:grid;gap:22px;padding:28px 0 52px}
+    .page{
+      position:relative;width:210mm;height:297mm;margin:0 auto;padding:17mm 16mm 16mm;
+      overflow:hidden;background:var(--paper);box-shadow:0 10px 32px rgba(28,26,23,.24);
+      display:flex;flex-direction:column;
+    }
+    .page::after{
+      content:"";position:absolute;inset:0;pointer-events:none;opacity:.22;
+      background-image:radial-gradient(rgba(28,26,23,.22) .45px,transparent .45px);
+      background-size:5px 5px;mix-blend-mode:multiply;
+    }
+    .page>*{position:relative;z-index:1}
+    .runhead,.foot{
+      display:flex;justify-content:space-between;align-items:center;font:700 9px/1.2 var(--mono);
+      letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)
+    }
+    .runhead{padding-bottom:8px;border-bottom:1px solid var(--line);margin-bottom:18px}
+    .runhead .at{color:var(--accent)}
+    .foot{margin-top:auto;padding-top:8px;border-top:1px solid var(--line)}
+    .kicker{font:700 10px/1.3 var(--mono);letter-spacing:.24em;text-transform:uppercase;color:var(--accent);margin-bottom:11px}
+    h1,h2,h3{font-family:var(--serif);text-wrap:balance;margin:0}
+    h1{font-size:43px;line-height:1.16;font-weight:900;letter-spacing:-.035em}
+    h1 .hl,h2 .hl{color:var(--accent)}
+    h2{font-size:28px;line-height:1.28;font-weight:900;letter-spacing:-.025em}
+    h3{font-size:17px;line-height:1.35;font-weight:700}
+    p{margin:0;text-wrap:pretty}
+    .sub{font-family:var(--serif);font-size:18px;line-height:1.65;color:var(--ink-soft);margin-top:14px;max-width:92%}
+    .sec-h{display:grid;grid-template-columns:40px 1fr auto;gap:12px;align-items:start;margin-bottom:14px}
+    .sec-h .no{font:700 13px/1.4 var(--mono);color:var(--accent);padding-top:7px}
+    .sec-h .side{font:700 9px/1.4 var(--mono);letter-spacing:.12em;color:var(--ink-soft);padding-top:8px;text-transform:uppercase}
+    .lead{font-family:var(--serif);font-size:16px;line-height:1.75;margin:0 0 17px}
+    .lead b,.mk{font-weight:700;background:linear-gradient(transparent 58%,var(--accent-soft) 58%)}
+    .badge{display:inline-block;background:var(--ink);color:var(--paper);font:700 9px/1 var(--mono);letter-spacing:.12em;padding:7px 10px;text-transform:uppercase}
+    .verdict{margin-top:22px;background:var(--paper-2);border-left:5px solid var(--good);padding:16px 18px}
+    .verdict.warn{border-left-color:var(--accent)}
+    .verdict .t{font:700 9px/1.2 var(--mono);letter-spacing:.14em;color:var(--good);text-transform:uppercase;margin-bottom:6px}
+    .verdict.warn .t{color:var(--accent)}
+    .verdict .b{font-family:var(--serif);font-size:19px;line-height:1.55;font-weight:700}
+    .verdict em{color:var(--accent);font-style:normal}
+    .bignum-row{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:auto;border-top:1px solid var(--ink)}
+    .bignum{padding:14px 12px 0 0;border-right:1px solid var(--line)}
+    .bignum:last-child{border-right:0;padding-left:14px}
+    .bignum:nth-child(2){padding-left:14px}
+    .bignum .n{font:700 27px/1.05 var(--mono);color:var(--accent)}
+    .bignum .n.good{color:var(--good)}
+    .bignum .u{font:700 9px/1.3 var(--mono);letter-spacing:.12em;color:var(--ink-soft);margin-top:6px}
+    .bignum .c{font-size:10px;color:var(--ink-soft);margin-top:5px}
+    .icon{width:28px;height:28px;color:var(--accent);stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;flex:none}
+    .icon.good{color:var(--good)}
+    .icon.ink{color:var(--ink)}
+    .icon.lg{width:42px;height:42px;stroke-width:1.45}
+    .concept-grid{display:grid;grid-template-columns:repeat(2,1fr);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+    .concept{display:grid;grid-template-columns:38px 1fr;gap:10px;padding:14px 14px 14px 0;border-bottom:1px solid var(--line)}
+    .concept:nth-child(odd){border-right:1px solid var(--line)}
+    .concept:nth-last-child(-n+2){border-bottom:0}
+    .concept:nth-child(even){padding-left:14px}
+    .concept h3{font-size:14px;margin-bottom:3px}
+    .concept p{font-size:10.5px;line-height:1.55;color:var(--ink-soft)}
+    .analogy{display:grid;grid-template-columns:1fr 64px 1fr;align-items:center;margin:14px 0 18px;border:1px solid var(--ink);background:var(--paper-2)}
+    .analogy .sidebox{padding:15px 17px;min-height:108px}
+    .analogy .arrow{height:100%;display:grid;place-items:center;border-left:1px solid var(--line);border-right:1px solid var(--line);font:700 24px var(--mono);color:var(--accent)}
+    .analogy .label{font:700 9px/1.2 var(--mono);letter-spacing:.13em;color:var(--accent);margin-bottom:7px}
+    .analogy strong{display:block;font-family:var(--serif);font-size:17px;line-height:1.4}
+    .analogy p{font-size:10.5px;line-height:1.55;color:var(--ink-soft);margin-top:5px}
+    .role-strip{display:grid;grid-template-columns:52px 1fr auto;gap:13px;align-items:center;padding:12px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);margin-bottom:16px}
+    .ticker{font:700 14px/1 var(--mono);color:var(--accent)}
+    .role-strip strong{font-family:var(--serif);font-size:17px}
+    .role-strip .tag{font:700 9px var(--mono);color:var(--ink-soft);letter-spacing:.1em;text-align:right}
+    .three{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:13px 0}
+    .panel{padding:13px 13px 12px;background:var(--paper-2);border-top:3px solid var(--ink)}
+    .panel.good{border-top-color:var(--good)}
+    .panel.risk{border-top-color:var(--accent)}
+    .panel .label{font:700 9px/1.2 var(--mono);letter-spacing:.12em;color:var(--ink-soft);margin:8px 0 5px;text-transform:uppercase}
+    .panel p{font-size:10.4px;line-height:1.6}
+    .example{display:grid;grid-template-columns:44px 1fr;gap:13px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:12px 0}
+    .example .eyebrow{font:700 9px/1.2 var(--mono);letter-spacing:.12em;color:var(--accent);margin-bottom:5px}
+    .example p{font-family:var(--serif);font-size:14px;line-height:1.65}
+    .data-line{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-top:13px}
+    .metric{padding:10px 10px 9px 0;border-right:1px solid var(--line)}
+    .metric:nth-child(2),.metric:nth-child(3){padding-left:10px}
+    .metric:last-child{border-right:0}
+    .metric .v{font:700 18px/1.1 var(--mono);color:var(--good)}
+    .metric .d{font-size:9px;line-height:1.4;color:var(--ink-soft);margin-top:4px}
+    .fine{font-size:8.5px;line-height:1.5;color:var(--ink-soft);margin-top:7px}
+    .network{display:grid;grid-template-columns:1fr 34px 1fr 34px 1fr;align-items:center;margin:14px 0}
+    .node{min-height:82px;display:grid;place-items:center;text-align:center;border:1px solid var(--ink);padding:10px;background:var(--paper-2);font-family:var(--serif);font-weight:700;font-size:13px}
+    .network .flow{text-align:center;font:700 20px var(--mono);color:var(--accent)}
+    .duo{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+    .half{min-width:0}
+    .half+.half{border-left:1px solid var(--line);padding-left:18px}
+    .mini-role{display:flex;gap:10px;align-items:center;margin-bottom:7px}
+    .mini-role .ticker{font-size:12px}
+    .mini-role h3{font-size:18px}
+    .half p{font-size:10.5px;line-height:1.62}
+    .mini-example{background:var(--paper-2);padding:10px 12px;margin:9px 0;font-family:var(--serif);font-size:12px!important}
+    .checklist{list-style:none;margin:9px 0 0;padding:0}
+    .checklist li{position:relative;padding:6px 0 6px 17px;border-top:1px solid var(--line);font-size:10px;line-height:1.5}
+    .checklist li::before{content:"›";position:absolute;left:1px;color:var(--accent);font:700 15px/1 var(--mono);top:6px}
+    .deal{display:grid;grid-template-columns:1fr 62px 1fr;align-items:stretch;margin:13px 0 17px}
+    .deal .party{border:1px solid var(--ink);padding:14px 15px;background:var(--paper-2)}
+    .deal .join{display:grid;place-items:center;font:700 22px var(--mono);color:var(--accent)}
+    .deal h3{font-size:15px;margin-bottom:6px}
+    .deal p{font-size:10.5px;line-height:1.55}
+    .table-wrap{border-top:2px solid var(--ink);border-bottom:2px solid var(--ink)}
+    table{width:100%;border-collapse:collapse;font-size:9.7px;line-height:1.45}
+    th{font:700 8.5px/1.3 var(--mono);letter-spacing:.08em;text-align:left;padding:8px 7px;border-bottom:1px solid var(--ink);color:var(--ink-soft)}
+    td{padding:8px 7px;border-bottom:1px solid var(--line);vertical-align:top}
+    tr:last-child td{border-bottom:0}
+    td:first-child{font:700 10px var(--mono);color:var(--accent)}
+    .opinion{display:inline-block;font:700 7px/1 var(--mono);padding:3px 4px;background:var(--accent-soft);color:var(--accent);white-space:nowrap}
+    .rankings{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin:14px 0}
+    .ranking{border-top:3px solid var(--ink);padding-top:11px}
+    .ranking.good{border-top-color:var(--good)}
+    .ranking .label{font:700 9px/1.3 var(--mono);letter-spacing:.12em;color:var(--ink-soft);margin-bottom:7px}
+    .ranking .order{font-family:var(--serif);font-size:17px;font-weight:900;line-height:1.55}
+    .ranking .order span{color:var(--accent)}
+    .sources{columns:2;column-gap:24px;margin:10px 0 0;padding:0;list-style:none}
+    .sources li{break-inside:avoid;border-top:1px solid var(--line);padding:7px 0;font-size:8.7px;line-height:1.45}
+    .sources strong{font-family:var(--mono);color:var(--accent)}
+    .sources a{word-break:break-word}
+    .notice{font-size:9px;line-height:1.5;padding:10px 12px;background:var(--paper-2);border:1px solid var(--line);margin-top:10px}
+    .cover .hero-mark{display:flex;align-items:center;gap:13px;margin:24px 0 4px}
+    .cover .hero-mark .line{height:1px;background:var(--line);flex:1}
+    .cover .hero-mark .icon{width:48px;height:48px}
+    .cover .sub{max-width:88%}
+    .cover .verdict{margin-top:26px}
+    @media screen and (max-width:820px){
+      html,body{width:100%;max-width:100%;overflow-x:hidden}
+      .deck{gap:12px;padding:0}
+      .page{width:100%;max-width:100%;min-width:0;height:auto;min-height:0;margin:0;padding:24px 20px 20px;box-shadow:none;overflow:visible}
+      .page>*{min-width:0;max-width:100%}
+      .page::after{position:fixed;opacity:.12}
+      .runhead{margin-bottom:15px}.foot{margin-top:26px}
+      h1{font-size:36px}.sub{font-size:16px;max-width:100%}h2{font-size:25px}
+      .sec-h{grid-template-columns:32px 1fr}.sec-h .side{display:none}
+      .bignum-row,.three,.data-line,.rankings,.duo{grid-template-columns:1fr}
+      .bignum{border-right:0;border-bottom:1px solid var(--line);padding:12px 0!important}.bignum:last-child{border-bottom:0}
+      .concept-grid{grid-template-columns:1fr}.concept,.concept:nth-child(odd),.concept:nth-child(even){border-right:0;border-bottom:1px solid var(--line);padding:13px 0}.concept:last-child{border-bottom:0}
+      .analogy{grid-template-columns:1fr}.analogy .arrow{height:42px;border:0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);transform:none}
+      .role-strip{grid-template-columns:48px 1fr}.role-strip .tag{grid-column:1/-1;text-align:left}
+      .network{grid-template-columns:1fr}.network .flow{transform:rotate(90deg);height:34px}
+      .half+.half{border-left:0;border-top:1px solid var(--ink);padding:16px 0 0}
+      .deal{grid-template-columns:1fr}.deal .join{height:48px}
+      /* 🔴 2026-08-24 徹底改寫（第三次修，前兩次都沒修乾淨）
+         病史：
+           v1 原始 → td{display:grid}，儲存格內的 <b>/<em>/文字節點各自變成 grid item，文字碎裂。
+           v2 08-23 → 改 td{display:block} + ::before 讀 data-label，看似修好。
+           v3 08-24 → 仍然壞。真因：**這套版面要求每個 <td> 都手寫 data-label 屬性**，
+                      少寫任何一格，::before 就是空字串，但版面已經按「標籤+內容」排好，
+                      於是留下空白欄、內容被擠成一行一字。
+         **根本問題不是樣式寫錯，是設計本身「忘記寫屬性就會壞」。**
+         改法：不再依賴 data-label。窄螢幕時表格維持真正的表格結構，容器橫向捲動。
+         這樣不論作者有沒有寫 data-label，版面都不會壞——把正確性從「靠自律」變成「靠結構」。
+         若仍想要卡片式堆疊，改用 .table-cards（需自行加 data-label），不要動這裡。 */
+      .table-wrap{display:block;width:100%;max-width:100%;overflow-x:auto;-webkit-overflow-scrolling:touch}
+      .table-wrap table{min-width:min(560px,100%);width:100%}
+      .table-wrap th,.table-wrap td{white-space:normal;word-break:break-word}
+      /* 選配：想要手機卡片式的表格，容器加 .table-cards，並確實為每個 td 寫 data-label */
+      .table-cards table,.table-cards thead,.table-cards tbody,.table-cards tr,.table-cards td{display:block;width:100%;min-width:0}
+      .table-cards{overflow-x:visible}
+      .table-cards table{min-width:0}
+      .table-cards thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+      .table-cards tr{padding:13px 0 15px;border-bottom:1px solid var(--ink)}
+      .table-cards tr:last-child{border-bottom:0}
+      .table-cards td{display:block;padding:0 0 9px;border:0}
+      .table-cards td[data-label]::before{content:attr(data-label);display:block;font:700 8.6px/1.4 var(--mono);
+        color:var(--accent);letter-spacing:.16em;text-transform:uppercase;margin-bottom:3px}
+      .table-cards td:first-child{font-size:15px;font-weight:700;line-height:1.4}
+      .concept p,.panel p,.half p,.deal p,.analogy p{font-size:14px;line-height:1.72}
+      .example p{font-size:15px}.mini-example{font-size:14px!important}
+      .checklist li{font-size:13.5px}.metric .d{font-size:12px}.fine{font-size:12px}
+      .sources{columns:1}.sources li{font-size:12.5px}.notice{font-size:12.5px}
+      table{font-size:12px}th{font-size:10px}
+      .cover .hero-mark{margin-top:18px}
+    }
+    @media print{
+      @page{size:A4;margin:0}
+      body{background:white;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+      .deck{display:block;padding:0}
+      /* 🔴 2026-08-23 修：原本 height:297mm 恰等於 A4，任何次像素進位都會把每一頁
+         擠出第二張實體頁——基準檔實測 8 節印成 13 頁。留 1.5mm 餘裕即可，
+         視覺上看不出來，但頁數會從「節數 × 約 1.6」回到「節數 × 1」。 */
+      .page{margin:0;box-shadow:none;page-break-after:always;height:295.5mm}
+      .page:last-child{page-break-after:auto}
+    }
+
+/* ── 報告版型元件（2026-08-24 補進共用檔）────────────────────────────
+   🔴 為什麼移進來：這些 class 是 references/report-template.md 指定要用的，
+   但先前只存在於某一份成品的 <style> 裡。結果下一份報告照模板寫 class，
+   CSS 卻沒有對應規則 → 圖片以原始像素渲染、表格完全沒框、內容溢出分頁。
+   規則：模板要求的 class，一律住在這個共用檔，不要靠每份報告自己抄。   */
+.vtag{display:inline-block;padding:4px 12px;font:700 10px/1.2 var(--mono);letter-spacing:.14em;margin-bottom:10px;background:#426B7B;color:#fff}
+.qbig{font-family:var(--serif);font-size:28px;font-weight:900;line-height:1.28;letter-spacing:-.02em;margin:0 0 6px}
+.qbig .hl{color:var(--accent)}
+.ans{background:var(--paper-2);border-left:5px solid var(--good);padding:14px 17px;margin:11px 0}
+.ans.no{border-left-color:var(--accent)}
+.ans .t{font:700 9px var(--mono);letter-spacing:.14em;color:var(--good);text-transform:uppercase;margin-bottom:5px}
+.ans.no .t{color:var(--accent)}
+.ans .b{font-family:var(--serif);font-size:17px;line-height:1.55;font-weight:700}
+.ans em{color:var(--accent);font-style:normal}
+.shot{border:1px solid var(--line);background:#FFFDF8;padding:5px;margin:9px 0}
+.shot img{display:block;width:100%;height:auto;max-height:84mm;object-fit:contain}
+.shot .cap{font:9px/1.5 var(--mono-cjk);color:var(--ink-soft);padding:5px 3px 1px;border-top:1px solid var(--line);margin-top:5px}
+.shot .cap b{color:var(--accent)}
+.pt{width:100%;border-collapse:collapse;margin:9px 0;background:#FFFDF8}
+.pt th,.pt td{border:1px solid var(--line);padding:7px 9px;text-align:left;font-size:10px;line-height:1.45}
+.pt th{background:var(--ink);color:var(--paper);font:700 9.5px var(--sans);letter-spacing:.05em}
+.pt tr.win td{background:#E1EEDF}.pt tr.hi td{background:var(--accent-soft)}
+.eg{background:#FFFDF8;border:1px dashed #BDB2A2;padding:12px 15px;margin:10px 0}
+.eg .lbl{font:700 8.5px var(--mono-cjk);letter-spacing:.14em;color:var(--gold);margin-bottom:6px}
+.eg p{font-size:11.5px;line-height:1.72}.eg b{color:var(--accent)}
+.plain{margin:2px 0 12px;color:var(--good);font-family:var(--serif);font-size:14.5px;line-height:1.6;font-weight:700}
+.sources{margin-top:auto;padding-top:9px;font:9px/1.6 var(--mono-cjk);color:var(--ink-soft);border-top:1px solid var(--line)}
+.sources b{color:var(--accent)}
+.fine{font-size:9.6px;line-height:1.6;color:var(--ink-soft);margin-top:7px}
+.warn{color:var(--accent);font-size:.88em}
+@media screen{html{background:var(--desk)}.deck{padding:26px 0 46px}}
+
+.bignum .n.good,.bignum .n.bad{font-size:24px}
+.barchart{border:1px solid var(--line);background:#FFFDF8;padding:14px 16px;margin:10px 0}
+.barchart .row{display:grid;grid-template-columns:118px 1fr;align-items:center;gap:10px;margin:7px 0}
+.barchart .lb{font:700 11px var(--sans);text-align:right;color:var(--ink)}
+.barchart .tr{display:flex;align-items:center;gap:8px;min-width:0}
+.barchart .bar{height:24px}
+.barchart .b-claim{background:var(--accent)}
+.barchart .b-real{background:var(--good)}
+.barchart .b-bench{background:var(--gold)}
+.barchart .bar span{color:var(--paper);font:700 12px var(--sans);float:right;margin-right:9px;line-height:24px}
+.barchart .tr em{font:700 12px var(--sans);font-style:normal;color:var(--ink)}
+</style></head>
+<body><div class="deck">
+<section class="page">
+<header class="runhead"><span>短影音研究 · 數據主張型</span><span class="at">@ 一頁看完</span></header>
+
+<div class="kicker">@goose_return · 「ChatGPT 拿 10 萬美元去炒美股，現在變成 17.89 萬美元」· Rallies 截圖</div>
+<h1>數字是真的<br><span class="hl">但那張表證明不了那句話</span></h1>
+<p class="sub">我把截圖上 10 檔股票的每一個數字都重算了一次，也去對了真實市場價格。
+<b>結論是：資料沒有造假</b>——推算出來的現價跟真實收盤價 10 檔有 9 檔誤差在 1.7% 以內。
+<b>但畫面上那 10 檔的成本是 15.1 萬、不是 10 萬</b>，而且它們的帳面獲利只有 2.74 萬。
+畫面寫的 <b>$78,850</b> 裡，有 <b>$51,450 來自已經賣掉、你在這張表上看不到的部位</b>。</p>
+<div class="shot" style="border:0;background:none;padding:0"><div class="barchart">
+  <div class="row"><div class="lb">貼文宣稱</div><div class="tr"><div class="bar b-claim" style="width:100%"><span>+78.85%</span></div></div></div>
+  <div class="row"><div class="lb">畫面上這 10 檔</div><div class="tr"><div class="bar b-real" style="width:23.1%"></div><em>+18.19%</em></div></div>
+  <div class="row"><div class="lb">同期 S&amp;P 500</div><div class="tr"><div class="bar b-bench" style="width:23.0%"></div><em>+18.17%</em></div></div>
+</div>
+<div class="cap"><b>同一張截圖，兩個完全不同的數字</b>　貼文引用的是最上面那條；表格能證明的是中間那條</div></div>
+<div class="ans no"><div class="t">結論</div>
+<div class="b">① 截圖<em>不是假的</em>，是 Rallies「AI Arena」實驗的真實畫面。<br>
+② 但 <em>17.89 萬這個數字，那張表本身撐不起來</em>——七成的獲利在畫面外。<br>
+③ 畫面上看得到的部分，報酬率 <em>+18.19%</em>，跟同期大盤的 <em>+18.17%</em> 幾乎一模一樣。</div></div>
+<div class="bignum-row" style="margin-top:auto">
+<div class="bignum"><div class="n good">9 / 10</div><div class="c">推算現價對得上真實收盤<br>誤差 &lt;1.7%</div></div>
+<div class="bignum"><div class="n bad">$51,450</div><div class="c">畫面外的獲利<br>占宣稱獲利 65%</div></div>
+<div class="bignum"><div class="n bad">8</div><div class="c">實驗裡的模型數<br>截圖只給你 1 個</div></div>
+</div>
+<footer class="foot"><span>短影音研究 · 數據主張型　@goose_return 截圖查證</span><span>01 / 04</span></footer></section>
+<section class="page">
+<header class="runhead"><span>短影音研究 · 數據主張型</span><span class="at">@ 自己算一遍</span></header>
+
+<h2 class="qbig">把表上每個數字重算，<span class="hl">哪裡對、哪裡對不上</span></h2>
+<p class="plain">白話總結：每一列自己算都對，但十列加起來跟畫面上的總計差了五萬一。</p>
+<div class="table-wrap"><table class="pt">
+<thead><tr><th style="width:30%">檢查項目</th><th style="width:24%">結果</th><th style="width:46%">代表什麼</th></tr></thead>
+<tbody>
+<tr class="win"><td>每列「市值 − 成本 = 損益」</td><td><b>10 / 10 吻合</b></td><td>每一列自己是自洽的</td></tr>
+<tr class="win"><td>每列「損益 ÷ 成本 = 損益%」</td><td><b>10 / 10 吻合</b></td><td>百分比不是另外填的</td></tr>
+<tr class="win"><td>成本 ÷ 進場價 = 股數</td><td><b>10 檔全是整數股</b><br>90、100、50、155…</td><td>真的有下單紀錄，不是隨手編的數字</td></tr>
+<tr class="win"><td>ALLOCATION 欄的定義</td><td><b>= 成本 ÷ 總成本</b><br>10 / 10 吻合</td><td>是「買進時的配置」，不是現在的市值佔比。<b>不看清楚會誤讀</b></td></tr>
+<tr class="hi"><td><b>10 列損益加總</b></td><td><b>$27,400</b><br>畫面寫 $78,850</td><td><b>差 $51,450。這是整張圖最重要的一格</b></td></tr>
+<tr class="hi"><td><b>10 列成本加總 ＋ 現金</b></td><td><b>$151,449</b><br>不是 $100,000</td><td>現在持有的部位，成本基礎已經是 15.1 萬</td></tr>
+<tr><td>市值加總 ＋ 現金</td><td>$178,851</td><td>總資產這個數字<b>對得上</b>貼文說的 17.89 萬</td></tr>
+</tbody></table></div>
+<div class="table-wrap"><table class="pt">
+<thead><tr><th style="width:14%">股票</th><th style="width:14%">成本</th><th style="width:14%">市值</th><th style="width:13%">損益</th><th style="width:11%">損益%</th><th style="width:34%">股數（成本 ÷ 進場價）</th></tr></thead>
+<tbody>
+<tr class="win"><td><b>CRDO</b></td><td>$8,811</td><td>$17,355</td><td>+$8,544</td><td>+97.0%</td><td>75 股　<b>唯一一檔翻倍，貢獻近三分之一帳面獲利</b></td></tr>
+<tr><td>GOOGL</td><td>$25,798</td><td>$31,178</td><td>+$5,380</td><td>+20.9%</td><td>90 股　最大持股</td></tr>
+<tr><td>LDOS</td><td>$18,240</td><td>$21,794</td><td>+$3,554</td><td>+19.5%</td><td>155 股</td></tr>
+<tr><td>APH</td><td>$13,835</td><td>$16,649</td><td>+$2,813</td><td>+20.3%</td><td>105 股</td></tr>
+<tr><td>V</td><td>$16,440</td><td>$19,057</td><td>+$2,617</td><td>+15.9%</td><td>50 股</td></tr>
+<tr><td>JPM</td><td>$8,943</td><td>$10,725</td><td>+$1,782</td><td>+19.9%</td><td>30 股</td></tr>
+<tr><td>PGR</td><td>$20,289</td><td>$21,869</td><td>+$1,580</td><td>+7.8%</td><td>100 股</td></tr>
+<tr><td>XOM</td><td>$14,398</td><td>$15,641</td><td>+$1,243</td><td>+8.6%</td><td>100 股</td></tr>
+<tr><td>CI</td><td>$18,239</td><td>$18,129</td><td>−$111</td><td>−0.6%</td><td>65 股</td></tr>
+<tr><td>LMT</td><td>$5,637</td><td>$5,635</td><td>−$2</td><td>−0.0%</td><td>10 股</td></tr>
+<tr class="hi"><td><b>加總</b></td><td><b>$150,630</b></td><td><b>$178,032</b></td><td><b>+$27,400</b></td><td><b>+18.19%</b></td><td><b>畫面上的 TOTAL PNL 卻寫 $78,850</b></td></tr>
+</tbody></table></div>
+<div class="eg"><div class="lbl">差的那五萬一是造假嗎？不是，但它讓你看不到重點</div>
+<p>最合理的解釋是：<b>TOTAL PNL 是「從開始到現在的累計損益」，包含已經賣掉的部位；
+但表格只列「現在還持有的」。</b>賣掉賺的錢被拿去加碼，所以成本基礎從 10 萬長到 15.1 萬。<br>
+這在對帳邏輯上完全說得通。<b>問題是：截圖給了你分子（總獲利），卻沒給你分母（怎麼賺到的）。</b>
+你看不到它買過什麼、賣在哪、有沒有停損。<b>一張只顯示贏家的表，沒辦法用來判斷一套方法好不好。</b></p></div>
+<footer class="foot"><span>短影音研究 · 數據主張型　@goose_return 截圖查證</span><span>02 / 04</span></footer></section>
+<section class="page">
+<header class="runhead"><span>短影音研究 · 數據主張型</span><span class="at">@ 出處與有效性</span></header>
+
+<h2 class="qbig">出處查到了，<span class="hl">但「有效」要看跟誰比</span></h2>
+<p class="plain">白話總結：來源是真的公開實驗，但截圖裡看得到的那部分，剛好只跟大盤打平。</p>
+<div class="table-wrap"><table class="pt">
+<thead><tr><th style="width:22%">項目</th><th style="width:78%">查到的內容</th></tr></thead>
+<tbody>
+<tr><td><b>出處</b></td><td><b>Rallies.ai 的「AI Arena」</b>——8 個大型語言模型各拿 <b>10 萬美元</b>，
+用真實市價下單，<b>2025 年 11 月底開跑</b>。截圖右下角的「Rallies」商標就是它</td></tr>
+<tr><td><b>性質</b></td><td><b>紙上交易（paper trading）</b>，不是真金白銀。
+報導明確標註「results are not based on real-money investments」</td></tr>
+<tr><td><b>報導數字</b></td><td>ChatGPT 自開跑以來 <b>+72.4%</b>，同期 S&amp;P 500 <b>+11.3%</b>（該報導的截止日）</td></tr>
+<tr class="hi"><td><b>我自己算的大盤</b></td><td>2025-11-20 → 2026-08-27：<b>S&amp;P 500 +18.17%</b>、<b>納斯達克100 +23.13%</b>
+　<span class="warn">（比報導引用的 +11.3% 高，因為截止日不同——引用大盤數字一定要對齊日期）</span></td></tr>
+<tr class="hi"><td><b>畫面上這 10 檔</b></td><td>成本 $150,630 → 市值 $178,032，<b>報酬率 +18.19%</b>。
+<b>跟同期 S&amp;P 500 的 +18.17% 幾乎完全一樣</b></td></tr>
+<tr><td><b>時效</b></td><td>2026-01-15 的排行榜上 <b>DeepSeek v3 以 +4.6% 排第一</b>，ChatGPT 當時並非第一。
+<b>名次會換</b>——任何一張截圖都只是某一天的樣子</td></tr>
+</tbody></table></div>
+<div class="ans no"><div class="t">「畫面上這 10 檔剛好等於大盤」要怎麼讀</div>
+<div class="b">這<em>不是</em>嚴謹的對照（10 檔的進場日期分散在 2025-11 到 2026-06，不是同一天起算）。<br>
+但它足以說明一件事：<b>這張表上看得到的持股，並沒有展現出打敗大盤的能力。</b>
+超額報酬<em>全部集中在畫面外那 $51,450</em>——而那部分，截圖沒有給你任何可以檢查的東西。</div></div>
+<div class="eg"><div class="lbl">怎麼自己核對截圖是不是真的</div>
+<p>用「市值 ÷ 股數」推算出每檔的現價，再跟真實收盤價比。這次 10 檔有 9 檔誤差在 <b>1.7% 以內</b>
+（唯一例外 CRDO 差 3.7%，它波動大、截圖又有兩天時差）。<br>
+<b>這招對任何投資組合截圖都有效，而且不需要對方提供任何額外資料。</b></p></div>
+<footer class="foot"><span>短影音研究 · 數據主張型　@goose_return 截圖查證</span><span>03 / 04</span></footer></section>
+<section class="page">
+<header class="runhead"><span>短影音研究 · 數據主張型</span><span class="at">@ 模型對比</span></header>
+
+<h2 class="qbig">有沒有對比其他模型？<span class="hl">有，而且那才是實驗重點</span></h2>
+<p class="plain">白話總結：這是一場 8 個模型的比賽，截圖只截了其中一個的成績單。</p>
+<div class="eg"><div class="lbl">這個實驗原本在比什麼</div>
+<p>Rallies AI Arena 的設計是：<b>同樣的起始資金、同樣的市場、同樣的規則，讓不同模型各自操盤，看誰勝出。</b>
+參賽的包含 <b>ChatGPT、Claude、Gemini、Grok、DeepSeek</b> 等 8 個模型。<br>
+<b>比較才是這個實驗存在的理由</b>——單看一個模型的曲線，等於把對照組丟掉。</p></div>
+<div class="table-wrap"><table class="pt">
+<thead><tr><th style="width:26%">你想知道的</th><th style="width:14%">答得出來嗎</th><th style="width:60%">依據</th></tr></thead>
+<tbody>
+<tr class="win"><td>這截圖是真的嗎</td><td><b>是</b></td><td>價格與真實市場吻合，股數為整數，逐列自洽</td></tr>
+<tr class="win"><td>有沒有比其他模型</td><td><b>有</b></td><td>8 個模型同場競技，這是 Arena 的核心設計</td></tr>
+<tr class="hi"><td>ChatGPT 現在第幾名</td><td><b>看不到</b></td><td>即時排行榜要在 App 內才看得到，網頁版是動態載入的，抓不到數字。
+<b>已知 2026-01 時第一名是 DeepSeek v3</b></td></tr>
+<tr><td>它真的比大盤強嗎</td><td><b>不確定</b></td><td>報導說 +72.4% vs 大盤 +11.3%；但截圖能證明的部分只有 +18.19%，
+與同期大盤 +18.17% 相當。<b>差額在畫面外</b></td></tr>
+<tr><td>照這樣做能賺錢嗎</td><td><b>無法判斷</b></td><td>紙上交易、無手續費與滑價、
+不知道換手率、不知道虧損的部位何時被賣掉。<b>缺的不是數字，是完整的交易紀錄</b></td></tr>
+</tbody></table></div>
+<div class="ans"><div class="t">三句話</div>
+<div class="b">① 截圖是<em>真的</em>，出處是 Rallies AI Arena 的公開紙上交易實驗。<br>
+② 但那句「10 萬變 17.89 萬」<em>那張表證明不了</em>——七成獲利在畫面外，看得到的部分只跟大盤打平。<br>
+③ 它<em>有</em>跟其他 7 個模型比，<b>而截圖把對照組整個拿掉了</b>——這是這則貼文最大的問題。</div></div>
+<div class="sources">
+<b>查證來源</b>：Rallies.ai 官網與 AI Arena 頁面（即時排名為動態載入，網頁抓取不到數字）；
+KuCoin、CryptoBriefing、Finbold、OneDayAdvisor 對該實驗的報導，2026-08 查得。
+價格與大盤報酬由 Yahoo Finance 免費資料自行重算（2025-11-20 → 2026-08-27）。<br>
+<b>性質</b>：截圖數據查證與出處追溯，<b>不含個股買賣建議</b>。該實驗為紙上交易，不代表實際可得報酬。
+</div>
+<footer class="foot"><span>短影音研究 · 數據主張型　@goose_return 截圖查證</span><span>04 / 04</span></footer></section>
+</div></body></html>
